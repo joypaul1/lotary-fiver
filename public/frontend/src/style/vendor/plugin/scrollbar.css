@@ -1,0 +1,24 @@
+/* html,
+body {
+    height: 100%;
+    overflow-x: hidden;
+    scroll-behavior: smooth
+}
+
+.body {
+    scrollbar-color: #00aad4ff #1c2224;
+    scrollbar-width: thin;
+} */
+
+.body::-webkit-scrollbar {
+    width: 10px;
+}
+
+.body::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 1px rgba(255, 255, 255, 0.3);
+    background-color: #1c2224;
+}
+
+.body::-webkit-scrollbar-thumb {
+    background-color: #00aad4ff;
+}

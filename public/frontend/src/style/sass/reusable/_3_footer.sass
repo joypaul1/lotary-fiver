@@ -1,0 +1,56 @@
+.footer
+    background-image: linear-gradient(to bottom, #000, #1c2224)
+    border-top: 1px solid #1c2224
+    padding: 25px 0
+
+    .container
+        display: flex
+        align-items: center
+        justify-content: space-between
+        column-gap: 15px
+
+        @media screen and (max-width: 767px)
+            flex-direction: column
+
+        h6
+            color: $cWhite
+            font-family: inconsolata-medium
+            letter-spacing: 2px
+            font-size: 20px
+
+            @media screen and (max-width: 767px)
+                text-align: center
+                margin-bottom: 20px
+
+        ul.scl
+            span
+                display: inline
+
+                @media screen and (max-width: 767px)
+                    display: block
+                    text-align: center
+
+                li
+                    display: inline-block
+                    height: 40px
+                    width: 40px
+                    margin: 5px 2px
+                    
+                    a
+                        display: block
+                        background-color: $darkBlue
+                        border-radius: 50%
+                        height: 100%
+                        width: 100%
+                        border-radius: 30px
+                        color: $cWhite
+                        font-size: 22px
+                        text-align: center
+                        border: 2px solid transparent
+
+                        i
+                            line-height: 36px
+
+                        &:hover
+                            border-color: $cWhite
+                            background-color: transparent

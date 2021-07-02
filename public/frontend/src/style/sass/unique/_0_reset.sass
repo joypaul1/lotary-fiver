@@ -1,0 +1,132 @@
+// importing fonts 
+// ==================================================================
+@font-face
+    font-family: inconsolata-extra-light
+    src: url("vendor/webfonts/custom/Inconsolata/Inconsolata-ExtraLight.ttf")
+
+@font-face
+    font-family: inconsolata-light
+    src: url("vendor/webfonts/custom/Inconsolata/Inconsolata-Light.ttf")
+
+@font-face
+    font-family: inconsolata-regular
+    src: url("vendor/webfonts/custom/Inconsolata/Inconsolata-Regular.ttf")
+
+@font-face
+    font-family: inconsolata-medium
+    src: url("vendor/webfonts/custom/Inconsolata/Inconsolata-Medium.ttf")
+
+@font-face
+    font-family: inconsolata-semi-bold
+    src: url("vendor/webfonts/custom/Inconsolata/Inconsolata-SemiBold.ttf")
+
+@font-face
+    font-family: inconsolata-bold
+    src: url("vendor/webfonts/custom/Inconsolata/Inconsolata-Bold.ttf")
+
+
+@font-face
+    font-family: inconsolata-extra-bold
+    src: url("vendor/webfonts/custom/Inconsolata/Inconsolata-ExtraBold.ttf")
+
+@font-face
+    font-family: inconsolata-black
+    src: url("vendor/webfonts/custom/Inconsolata/Inconsolata-Black.ttf")
+
+
+// reseting basic styles
+// ==================================================================
+html
+  scroll-behavior: smooth
+
+body
+	overflow-x: hidden
+	background-color: #fff
+	font-family: inconsolata-regular
+	color: $hotRed
+
+main
+	overflow: hidden
+	overflow-y: auto
+
+.container
+	width: 100%
+	padding: 0 1rem
+	margin: 0 auto	
+
+	@media only screen and (min-width: 991px)
+		width: 900px
+		padding: 0 2rem
+
+	@media only screen and (min-width: 1024px)
+		width: 991px
+
+	@media only screen and (min-width: 1170px)
+		width: 1024px
+
+	@media only screen and (min-width: 1280px)
+		width: 	1170px
+
+	@media only screen and (min-width: 1360px)
+		width: 	1280px
+
+	@media only screen and (min-width: 1536px)
+		width: 	1360px
+
+// all element styls
+*
+	margin: 0
+	padding: 0
+	box-sizing: border-box
+	border: none
+	background: none
+	border-radius: 0
+	outline: none
+	text-decoration: none
+	
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6
+		line-height: 1.25
+		font-family: inconsolata-bold
+
+	p,
+	textarea,
+	input,
+	pre,
+	button,
+	figcaption,
+	label,
+	a
+		line-height: 1.15
+
+	button,
+	a
+		cursor: pointer
+		transition: .3s
+		text-decoration: none
+		transition: .3s
+
+		&:hover
+			opacity: .85
+		
+	button,
+	.button
+		text-align: center
+		line-height: 1.2
+		text-transform: capitalize
+		text-decoration: none
+
+		&:focus
+			outline: none
+	
+	.disabled
+		opacity: 0.5!important
+		
+	ul
+		list-style-type: none
+		margin: 0
+		padding: 0

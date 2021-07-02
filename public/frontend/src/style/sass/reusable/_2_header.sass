@@ -1,0 +1,204 @@
+.header
+    padding: 1rem 0
+    position: fixed
+    top: 0
+    left: 0
+    right: 0
+    z-index: 9997
+    transition: .3s
+
+    .headerContainer
+        padding: 0 3rem
+        display: flex
+        align-items: start
+        justify-content: space-between
+
+        @media screen and (max-width: 1280px)
+            padding: 0 2rem
+
+        @media screen and (max-width: 1024px)
+            padding: 0 1rem
+        
+        .logoBox
+            height: 125px
+            overflow: hidden
+            transition: .3s
+
+            @media screen and (max-width: 768px)
+                height: 90px
+
+            .headerLogo
+                display: block
+                transition: .2s!important
+                
+                img
+                    height: 100%
+                    width: auto
+                    transition: .3s
+
+                    @media screen and (max-width: 768px)
+                        height: 90px
+
+            .logoBtn
+                @include btnStyle
+                display: none
+                transition: .2s!important
+
+                @media screen and (max-width: 767px)
+                    display: block
+                    
+        .pBarBtn
+            margin-top: 7.5px
+            visibility: hidden
+            transition: .3s
+            opacity: 0
+
+            @media screen and (max-width: 767px)
+                display: none
+
+        .headerRight
+
+            
+            .menuBtn
+                display: inline-block
+                color: $hotRed
+                font-size: 50px
+                line-height: 1
+                text-align: center
+                position: sticky
+                z-index: 9999
+                opacity: .8
+                cursor: pointer
+                padding-top: 2rem
+                transition: .2s!important
+
+                @media screen and (max-width: 1280px)
+                    padding-top: 1rem
+
+                @media screen and (max-width: 1024px)
+                    padding-top: 0
+
+                &:hover
+                    opacity: 1
+
+                span
+                    display: block
+                    transition: .3s
+
+                    &.menuClose
+                        margin-top: -113%
+                        opacity: 0
+
+            nav
+                position: fixed
+                top: 0px
+                right: 0px
+                width: 0
+                height: 0
+                background-color: rgba(3, 3, 3, .9)
+                z-index: 998
+                display: flex
+                flex-direction: column
+                justify-content: center
+                overflow: hidden
+                transition: .3s
+                opacity: 0
+
+                ul
+                    display: flex
+                    flex-direction: column
+                    align-items: start
+                    transition: .1s
+                    opacity: 0
+                    max-height: 100%
+                    overflow-y: auto
+
+                    li
+                        position: relative
+                        margin-bottom: 25px
+
+                        a
+                            color: $cWhite
+                            font-size: 35px
+                            font-family: inconsolata-bold
+                            text-transform: uppercase
+                            display: flex
+                            align-items: center
+
+                            @media screen and (max-width: 767px)
+                                font-size: 25px
+
+                                @media screen and (max-width: 575px)
+                                    font-size: 20px
+                            img
+                                width: 35px
+                                height: 35px
+                                margin-right: 10px
+
+                            &.active,
+                            &:hover
+                                color: $darkBlue
+
+                        .pBarBtn
+                            display: none
+
+                            @media screen and (max-width: 767px)
+                                visibility: visible
+                                opacity: 1
+                                display: block
+
+                            a
+                                display: inline-block
+
+
+    &.active
+        .headerContainer
+            .headerRight
+                nav
+                    opacity: 1
+                    top: 0
+                    right: 0
+                    width: 100%
+                    height: 100%
+
+                    ul
+                        opacity: 1
+
+                .menuBtn
+                    opacity: 1
+
+                    .menuOpen
+                        transform: rotate(180degt)
+                        opacity: 0
+
+                    .menuClose
+                        transform: rotate(180deg)
+                        opacity: 1
+
+
+    &.scrolled
+        background-image: linear-gradient(to bottom, #000, #1c2224)
+        border-bottom: 1px solid rgba(255, 255, 255, .15)
+
+        .headerContainer
+            .logoBox
+                @media screen and (min-width: 768px)
+                    height: 75px
+
+                .headerLogo
+                    @media screen and (max-width: 767px)
+                        transform: translateY(-100%)
+
+                .logoBtn
+                    transform: translateY(-135%)
+
+            .pBarBtn
+                visibility: visible
+                opacity: 1
+
+            .headerRight
+                .menuBtn
+                    padding-top: 12px
+
+                    @media screen and (max-width: 767px)
+                        padding-top: 18px

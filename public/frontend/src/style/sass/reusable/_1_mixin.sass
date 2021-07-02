@@ -1,0 +1,36 @@
+@mixin btnStyle()
+    text-transform: uppercase
+    display: inline-block
+    font-family: inconsolata-bold
+    border-radius: 5px
+    font-size: 18px
+    color: $cWhite
+    background-color: $hotPink
+    padding: 5px
+    background: linear-gradient(-45deg, rgba(255,0,102,1) 0%, rgba(0,136,204,1) 100%)
+
+    &:hover
+        background: linear-gradient(45deg, rgba(255,0,102,1) 0%, rgba(0,136,204,1) 100%)
+
+    span
+        border-radius: 3px
+        display: block
+        padding: 10px 15px
+        background-color: $cBlack
+    
+    
+.darkBLack
+    background-image: linear-gradient(to bottom, #1c2224, #000, #000)
+
+.lightBLack
+    background-image: linear-gradient(to bottom, #000, #1c2224, #1c2224)
+
+
+.pBarBtn
+    a
+        @include btnStyle
+        margin: 5px 0
+        margin-right: 10px
+
+        &:last-child
+            margin-right: 0
