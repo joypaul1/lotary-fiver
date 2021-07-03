@@ -36,10 +36,15 @@
                 <td>{{ $key + 1 }}</td>
                 <td>{{ $data->title??"" }}</td>
 
-                <td>
-                    <img src="{{ asset($data->image??"") }}" height="30"  width="120" alt="No Image">
-                </td>
 
+                <td>
+                    <img src="{{ asset($data->image??"") }}"
+                         height="30"
+                         width="120"
+                         alt="No Image">
+                </td>
+                {{-- @dd($data->short_description) --}}
+                {{-- <td>{!! $data->short_description !!}</td> --}}
                 <td>
                     <div class="btn-group btn-group-mini btn-corner">
                         <a href="{{ route('backend.marketplaceSection.edit', $data->id) }}"

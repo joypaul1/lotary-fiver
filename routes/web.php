@@ -37,6 +37,9 @@ Route::group(['prefix' => 'sadmin', 'middleware' => ['auth:admin', 'admin'], 'na
 
     // MARKETPLACE
     require_once __DIR__ . '/backend/marketplaceSection.php';
+
+    // lottarySection
+    require_once __DIR__ . '/backend/lottarySection.php';
 });
 
 

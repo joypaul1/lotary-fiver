@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Lottery;
 use Illuminate\Http\Request;
 
 class LotteryController extends Controller
@@ -14,7 +15,8 @@ class LotteryController extends Controller
      */
     public function index()
     {
-        //
+        $datas = Lottery::paginate(10);
+        return view('backend.marktetSection.index',compact('datas'));
     }
 
     /**
