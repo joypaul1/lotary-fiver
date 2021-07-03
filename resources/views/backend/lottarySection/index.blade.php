@@ -1,8 +1,8 @@
 @extends('backend.layouts.master')
 
-@section('title','marketplaceSection List')
+@section('title','lottarySection List')
 @section('page-header')
-    <i class="fa fa-list"></i> MarketplaceSection List
+    <i class="fa fa-list"></i> LottarySection List
 @stop
 
 @push('css')
@@ -18,8 +18,8 @@
 @section('content')
     @include('backend.components.page_header', [
        'fa' => 'fa fa-pencil',
-       'name' => 'MarketplaceSection Create',
-       'route' => route('backend.marketplaceSection.create')
+       'name' => 'LottarySection Create',
+       'route' => route('backend.lottarySection.create')
     ])
 
     <table class="table table-bordered">
@@ -27,27 +27,19 @@
         <tr>
             <th class="bg-dark" style="width: 10%">SL</th>
             <th class="bg-dark" style="width: 40%">Title</th>
-            <th class="bg-dark" style="width: 30%">Image</th>
-            {{-- <th class="bg-dark" style="width: 40%">Description</th> --}}
+            <th class="bg-dark" style="width: 40%">Description</th>
             <th class="bg-dark" style="">Action</th>
         </tr>
         @forelse($datas as $key => $data)
             <tr>
                 <td>{{ $key + 1 }}</td>
                 <td>{{ $data->title??"" }}</td>
-
-
-                <td>
-                    <img src="{{ asset($data->image??"") }}"
-                         height="30"
-                         width="120"
-                         alt="No Image">
-                </td>
                 {{-- @dd($data->short_description) --}}
-                {{-- <td>{!! $data->short_description !!}</td> --}}
+                <td>{{ ($data->short_description) }} </td>
+
                 <td>
                     <div class="btn-group btn-group-mini btn-corner">
-                        <a href="{{ route('backend.marketplaceSection.edit', $data->id) }}"
+                        <a href="{{ route('backend.lottarySection.edit', $data->id) }}"
                            class="btn btn-xs btn-info"
                            title="Edit">
                             <i class="ace-icon fa fa-pencil"></i>
@@ -59,7 +51,7 @@
                             <i class="ace-icon fa fa-trash-o"></i>
                         </button>
                     </div>
-                    <form action="{{ route('backend.marketplaceSection.destroy', $data->id)}}"
+                    <form action="{{ route('backend.lottarySection.destroy', $data->id)}}"
                           id="deleteCheck_{{ $data->id }}" method="GET">
                         @csrf
                     </form>

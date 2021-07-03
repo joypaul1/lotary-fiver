@@ -8,5 +8,5 @@ Route::group(['prefix' => '/marketplaceSection'], function (){
     Route::post('/store',           'MarketController@store')->name('backend.marketplaceSection.store');
     Route::get('/edit/{id}',        'MarketController@edit')->name('backend.marketplaceSection.edit');
     Route::post('/update/{id}',     'MarketController@update')->name('backend.marketplaceSection.update');
-    Route::get('/delete/{id}',      'MarketController@delete')->name('backend.marketplaceSection.destroy');
+    Route::get('/delete/{id}',      'MarketController@destroy')->name('backend.marketplaceSection.destroy');
 });

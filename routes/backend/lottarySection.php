@@ -8,5 +8,5 @@ Route::group(['prefix' => '/lottarySection'], function (){
     Route::post('/store',           'LotteryController@store')->name('backend.lottarySection.store');
     Route::get('/edit/{id}',        'LotteryController@edit')->name('backend.lottarySection.edit');
     Route::post('/update/{id}',     'LotteryController@update')->name('backend.lottarySection.update');
-    Route::get('/delete/{id}',      'LotteryController@delete')->name('backend.lottarySection.destroy');
+    Route::get('/delete/{id}',      'LotteryController@destroy')->name('backend.lottarySection.destroy');
 });

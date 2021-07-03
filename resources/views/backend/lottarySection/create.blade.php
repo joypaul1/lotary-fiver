@@ -45,24 +45,7 @@
             </div>
         </div>
 
-            <!-- Image -->
-            <div class="form-group">
-                <label class="col-sm-2 bolder" for="image">Image
-                </label>
-                <div class="col-sm-6">
-                    <input name="image"
-                           type="file"
-                           required
-                           id="image"
-                           class="form-control"
-                           onchange="readURL(this);">
-                    <strong class="red">{{ $errors->first('image') }}</strong>
-                    @if($errors->first('image'))
-                        <br>
-                    @endif
-                    <strong class="red">Minimum  420X420 pixels</strong>
-                </div>
-            </div>
+
 
             <div class="form-group">
                 <label class="col-sm-2 no-padding-right bolder" for="short_desc">Description </label>

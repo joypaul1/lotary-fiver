@@ -62,4 +62,11 @@ class MarketController extends Controller
 
         return back()->with('message', 'Data Updated successfully!');
     }
+
+    public function destroy($id)
+    {
+        $page = Market::find($id);
+        $page->delete();
+       return back()->with('error', 'Data deleted Successfully!.');
+    }
 }

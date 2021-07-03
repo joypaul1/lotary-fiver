@@ -2,7 +2,7 @@
     <a href="#" class="dropdown-toggle">
         <i class="menu-icon fa fa-shopping-cart"></i>
         <span class="menu-text">
-            Market Section
+            Lottary Section
         </span>
         <b class="arrow fa fa-angle-down"></b>
     </a>

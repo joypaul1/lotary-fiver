@@ -16,7 +16,7 @@ class LotteryController extends Controller
     public function index()
     {
         $datas = Lottery::paginate(10);
-        return view('backend.marktetSection.index',compact('datas'));
+        return view('backend.lottarySection.index',compact('datas'));
     }
 
     /**
@@ -26,7 +26,7 @@ class LotteryController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.lottarySection.create');
     }
 
     /**
@@ -37,7 +37,10 @@ class LotteryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        Lottery::create($data);
+        return back()->with('message', 'Data Created successfully!');
+
     }
 
     /**
@@ -59,7 +62,8 @@ class LotteryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data       = Lottery::whereId($id)->first();
+        return view('backend.lottarySection.edit',compact('data'));
     }
 
     /**
@@ -71,7 +75,10 @@ class LotteryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $lottery = Lottery::whereId($id)->first();
+        $data    = $request->except('-token');
+        $lottery->update($data);
+        return back()->with('message', 'Data Updated successfully!');
     }
 
     /**
@@ -82,6 +89,8 @@ class LotteryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $page = Lottery::find($id);
+        $page->delete();
+       return back()->with('error', 'Data deleted Successfully!.');
     }
 }

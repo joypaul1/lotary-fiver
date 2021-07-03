@@ -45,24 +45,6 @@
             </div>
         </div>
 
-            <!-- Image -->
-            <div class="form-group">
-                <label class="col-sm-2 bolder" for="image">Image
-                </label>
-                <div class="col-sm-6">
-                    <input name="image"
-                           type="file"
-                           required
-                           id="image"
-                           class="form-control"
-                           onchange="readURL(this);">
-                    <strong class="red">{{ $errors->first('image') }}</strong>
-                    @if($errors->first('image'))
-                        <br>
-                    @endif
-                    <strong class="red">Minimum  420X420 pixels</strong>
-                </div>
-            </div>
 
             <div class="form-group">
                 <label class="col-sm-2 no-padding-right bolder" for="short_desc">Description </label>
@@ -84,7 +66,7 @@
                     <button class="btn btn-sm btn-success submit create-button"><i class="fa fa-save"></i> Add
                     </button>
 
-                    <a href="{{route('backend.site_config.slider.index')}}" class="btn btn-sm btn-gray"> <i
+                    <a href="{{route('backend.lottarySection.index')}}" class="btn btn-sm btn-gray"> <i
                             class="fa fa-refresh"></i>
                         Cancel</a>
                 </div>
@@ -92,54 +74,7 @@
         </form>
     </div>
 
-    <div class="col-sm-3">
-        <div class="widget-box first">
-            <div class="widget-header">
-                <h4 class="widget-title">Current Image</h4>
 
-                <div class="widget-toolbar">
-                    <a href="#" data-action="collapse">
-                        <i class="ace-icon fa fa-chevron-up"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="widget-body"
-                 style="display:flex; align-items: center; justify-content: center; height:100px;">
-                <div class="widget-main">
-                    <div class="form-group">
-                        <div class="col-xs-12">
-                            <img id="current" src="" width="100" height="100" class="img-responsive center-block"
-                                 alt="image">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-3">
-        <div class="widget-box first">
-            <div class="widget-header">
-                <h4 class="widget-title">Old Image</h4>
-
-                <div class="widget-toolbar">
-                    <a href="#" data-action="collapse">
-                        <i class="ace-icon fa fa-chevron-up"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="widget-body"
-                 style="display:flex; align-items: center; justify-content: center; height:100px;">
-                <div class="widget-main">
-                    <div class="form-group">
-                        <div class="col-xs-12">
-                            <img id="" src="{{ asset($data->image??' ') }}" width="100" height="100" class="img-responsive center-block"
-                                 alt="image">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 @endsection
 
 @push('js')

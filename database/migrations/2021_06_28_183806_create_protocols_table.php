@@ -19,7 +19,7 @@ class CreateProtocolsTable extends Migration
             $table->string('highlight');
             $table->string('logo');
             $table->string('image');
-            $table->text('description');
+            $table->longText('description');
             $table->timestamps();
         });
     }
