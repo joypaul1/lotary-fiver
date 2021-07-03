@@ -32,8 +32,11 @@
         {{-- header Section  --}}
         @include('backend.partials.sidebar_modules.headerSection')
 
-        {{-- header Section  --}}
+        {{-- protocalSection Section  --}}
         @include('backend.partials.sidebar_modules.protocalSection')
+
+        {{-- protocalSection Section  --}}
+        @include('backend.partials.sidebar_modules.marketSection')
     </ul>
 
     <div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
