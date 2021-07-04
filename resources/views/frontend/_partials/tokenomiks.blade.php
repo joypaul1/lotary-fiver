@@ -3,6 +3,9 @@
         <h2>
             initial Tokenomiks
         </h2>
+        {{-- @foreach ($market as $mar)
+            @dd($mar)
+        @endforeach --}}
         <div class="tkWrapper">
             <div class="progress">
                 <div class="pBarBtn">

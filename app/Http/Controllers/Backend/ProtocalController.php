@@ -49,17 +49,31 @@ class ProtocalController extends Controller
         $data = $protocol->whereId($id)->first();
         return view('backend.protocalSection.edit', ['data' =>$data]);
     }
-    public function update(Request $request, Protocol $protocol,$id )
+    public function update(Request $request,$id )
     {
 
+        $protocol = Protocol::find($id);
         $data = $request->except('_token', '_method');
-        if ($request->filled('logo')) {
-            $data['logo']  = $this->imageUpload($request->file('logo'),'50' ,'50');
+        if ($request->logo) {
+            // $data['logo']  = $this->imageUpload($request->file('logo'),'50' ,'50',  $protocol->logo);
+            $data['logo']  = (new SimpleUpload)->file($request->logo)
+                                ->dirName('logo')
+                                ->deleteIfExists($protocol->logo)
+                                ->resizeImage(50,50)
+                                ->save();
         }
-        if ($request->filled('image')) {
-            $data['image'] = $this->imageUpload($request->file('image'),'120' ,'135');
+        if ($request->image) {
+            $data['image'] = (new SimpleUpload)
+                        ->file($request->image)
+                        ->dirName('image')
+                        ->deleteIfExists($protocol->image)
+                        ->resizeImage(120,135)
+                        ->save();
+
         }
-        $protocol->whereId($id)->update($data);
+        // dd($data);
+
+        $protocol->update($data);
 
 
         return redirect()->route('backend.protocalSection.index')->with('message', 'Data Updated Successfully.');

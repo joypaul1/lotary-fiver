@@ -83,7 +83,7 @@
                     <strong class="red">{{ $message }}</strong>
                     <br>
                     @enderror
-                    <strong class="text-primary">Minimum 100x100 pixels</strong>
+                    <strong class="text-primary">Minimum 120x135 pixels</strong>
                 </div>
             </div>
             <div class="form-group">
