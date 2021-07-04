@@ -29,6 +29,9 @@
         {{-- Site Config --}}
         @include('backend.partials.sidebar_modules.site_config')
 
+        {{-- Site Config --}}
+        @include('backend.partials.sidebar_modules.social')
+
         {{-- header Section  --}}
         @include('backend.partials.sidebar_modules.headerSection')
 

@@ -40,6 +40,9 @@ Route::group(['prefix' => 'sadmin', 'middleware' => ['auth:admin', 'admin'], 'na
 
     // lottarySection
     require_once __DIR__ . '/backend/lottarySection.php';
+
+    // social
+    require_once __DIR__ . '/backend/social.php';
 });
 
 

@@ -1,4 +1,8 @@
 <!-- footer content -->
+@php
+    $social = App\Models\Social::first();
+@endphp
+
 <footer id="footer" class="footer">
     <div class="container">
         <h6>
@@ -7,44 +11,44 @@
         <ul class="scl">
             <span>
                 <li>
-                    <a href="">
+                    <a href="{{ $social->youtube??' '}}" target="_blank">
                         <i class="fab fa-youtube"></i>
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="{{ $social->instagram??' '}}" target="_blank">
                         <i class="fab fa-instagram"></i>
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="{{ $social->facebook??' '}}" target="_blank">
                         <i class="fab fa-facebook"></i>
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a  href="{{ $social->twitter??' '}}" target="_blank">
                         <i class="fab fab fa-twitter"></i>
                     </a>
                 </li>
             </span>
             <span>
                 <li>
-                    <a href="">
+                    <a  href="{{ $social->telegram??' '}}" target="_blank">
                         <i class="fab fa-telegram"></i>
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a  href="{{ $social->reddit??' '}}" target="_blank">
                         <i class="fab fa-reddit"></i>
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a  href="{{ $social->medium??' '}}"target="_blank">
                         <i class="fab fa-medium"></i>
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a  href="{{ $social->discord ??' '}}" target="_blank">
                         <i class="fab fa-discord"></i>
                     </a>
                 </li>
