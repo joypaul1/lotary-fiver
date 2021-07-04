@@ -34,7 +34,7 @@
             <div class="rmWrapper">
                 @foreach ($protocal as $pro)
                     <div class="rmItem">
-                        <span class="itemNumber"></span>
+                        <span class="itemNumber" style="background-image: url('{{ asset($pro->logo)??'' }}')"></span>
                         <h4 class="itemHead">
                             {{ $pro->highlight??'' }}
                         </h4>
