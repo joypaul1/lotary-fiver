@@ -11,12 +11,15 @@ class LotteryBgController extends Controller
 {
     public function index(Request $request)
     {
-        return view('backend.lottery.bg', [$data =  LotteryBg::first()]);
+        $data =  LotteryBg::first();
+        // dd($data);
+        return view('backend.lottarySection.bg', compact('data'));
     }
 
     public function store(Request $request)
     {
         $lottery = LotteryBg::first();
+
         if ($request->image) {
             $data = (new SimpleUpload)->file($request->image)
             ->dirName('market')
@@ -24,7 +27,7 @@ class LotteryBgController extends Controller
             ->save();
         }
 
-        $lottery->update($data);
+        LotteryBg::firstOrCreate(['id'=> 1], ['image' => $data]);
         return back()->with('message', 'Data Updated successfully!');
     }
 }

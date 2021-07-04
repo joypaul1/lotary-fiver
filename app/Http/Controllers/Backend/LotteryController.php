@@ -93,4 +93,6 @@ class LotteryController extends Controller
         $page->delete();
        return back()->with('error', 'Data deleted Successfully!.');
     }
+
+
 }

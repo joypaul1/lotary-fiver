@@ -9,7 +9,7 @@
                 exotic car lottery
             </h2>
             <figure>
-                <img src="{{asset('frontend') }}/src/media/image/lambo-360.gif" alt="lamborgini">
+                <img src="{{ asset($lotteryBg->image)??' ' }}" alt="lamborgini">
             </figure>
             <article>
                 @if ($lottery)

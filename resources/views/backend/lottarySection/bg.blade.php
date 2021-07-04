@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
-@section('title', 'Edit marketplaceSection')
+@section('title', 'Add marketplaceSection')
 @section('page-header')
-    <i class="fa fa-info"></i> Edit MarketplaceSection
+    <i class="fa fa-info"></i> Add LottarySection Backgound Image
 @endsection
 @push('css')
     <style>
@@ -15,35 +15,18 @@
 
 @section('content')
     @include('backend.components.page_header', [
-       'fa' => 'fa fa-list',
-       'name' => 'MarketplaceSection List',
-       'route' =>route('backend.marketplaceSection.index'),
+    //    'fa' => 'fa fa-list',
+    //    'name' => 'MarketplaceSection List',
+    //    'route' =>route('backend.marketplaceSection.index'),
     ])
 
     <div class="col-sm-9">
-        <form class="form-horizontal" method="post" action="{{route('backend.marketplaceSection.update', $data->id)}}"
+        <form class="form-horizontal" method="post" action="{{route('backend.lottarySection.bg.store')}}"
               role="form"
               enctype="multipart/form-data">
         @csrf
 
-        {{-- Title --}}
-        <div class="form-group">
-            <label class="col-sm-2 bolder" for="title">Title
-            </label>
-            <div class="col-sm-6">
-                <input name="title"
-                       type="text"
-                       id="title"
-                       required
-                       value="{{ old('title' , $data->title) }}"
-                       class="form-control"
-                       >
-                <strong class="red">{{ $errors->first('title') }}</strong>
-                @if($errors->first('title'))
-                    <br>
-                @endif
-            </div>
-        </div>
+
 
             <!-- Image -->
             <div class="form-group">
@@ -60,20 +43,7 @@
                     @if($errors->first('image'))
                         <br>
                     @endif
-                    <strong class="red">Minimum  420X420 pixels</strong>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label class="col-sm-2 no-padding-right bolder" for="short_desc">Description </label>
-                <div class="col-sm-8">
-                    @include('backend.components.summer_note',[
-                    'name'=>'description',
-                    'content'=>$data->description ?? old('description')
-                    ])
-                    <div class="col-sm-9 col-sm-offset-2">
-                        <strong class=" red">{{ $errors->first('description') }}</strong>
-                    </div>
+                    <strong class="red">Minimum  700X400 pixels</strong>
                 </div>
             </div>
 
@@ -84,6 +54,9 @@
                     <button class="btn btn-sm btn-success submit create-button"><i class="fa fa-save"></i> Add
                     </button>
 
+                    <a href="{{route('backend.site_config.slider.index')}}" class="btn btn-sm btn-gray"> <i
+                            class="fa fa-refresh"></i>
+                        Cancel</a>
                 </div>
             </div>
         </form>
@@ -112,11 +85,11 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="col-sm-3">
+
+
         <div class="widget-box first">
             <div class="widget-header">
-                <h4 class="widget-title">Old Image</h4>
+                <h4 class="widget-title">Uploaded Image</h4>
 
                 <div class="widget-toolbar">
                     <a href="#" data-action="collapse">
@@ -129,7 +102,7 @@
                 <div class="widget-main">
                     <div class="form-group">
                         <div class="col-xs-12">
-                            <img id="" src="{{ asset($data->image??' ') }}" width="100" height="100" class="img-responsive center-block"
+                            <img src="{{ asset($data->image??' ') }}" width="100" height="100" class="img-responsive center-block"
                                  alt="image">
                         </div>
                     </div>

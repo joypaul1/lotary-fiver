@@ -25,5 +25,14 @@
             <b class="arrow"></b>
         </li>
     </ul>
+    <ul class="submenu">
+        <li class="{{ $routeName === 'backend.lottarySection.bg' ? 'open' : ''}}">
+            <a href="{{ route('backend.lottarySection.bg') }}">
+                <i class="menu-icon fa fa-caret-right"></i>
+                Heighlight Image
+            </a>
+            <b class="arrow"></b>
+        </li>
+    </ul>
 
 </li>

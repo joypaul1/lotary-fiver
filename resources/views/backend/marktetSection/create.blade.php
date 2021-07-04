@@ -84,9 +84,7 @@
                     <button class="btn btn-sm btn-success submit create-button"><i class="fa fa-save"></i> Add
                     </button>
 
-                    <a href="{{route('backend.site_config.slider.index')}}" class="btn btn-sm btn-gray"> <i
-                            class="fa fa-refresh"></i>
-                        Cancel</a>
+
                 </div>
             </div>
         </form>

@@ -47,18 +47,18 @@
 
 
 
-            <div class="form-group">
-                <label class="col-sm-2 no-padding-right bolder" for="short_desc">Description </label>
-                <div class="col-sm-8">
-                    @include('backend.components.summer_note',[
-                    'name'=>'description',
-                    'content'=>old('description')
-                    ])
-                    <div class="col-sm-9 col-sm-offset-2">
-                        <strong class=" red">{{ $errors->first('description') }}</strong>
-                    </div>
+        <div class="form-group">
+            <label class="col-sm-2 no-padding-right bolder" for="short_desc">Description </label>
+            <div class="col-sm-8">
+                @include('backend.components.summer_note',[
+                'name'=>'description',
+                'content'=>old('description')
+                ])
+                <div class="col-sm-9 col-sm-offset-2">
+                    <strong class=" red">{{ $errors->first('description') }}</strong>
                 </div>
             </div>
+        </div>
 
 
             <!-- Buttons -->

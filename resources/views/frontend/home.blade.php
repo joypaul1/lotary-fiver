@@ -73,7 +73,7 @@
     @include('frontend._partials.nftmarket', ['market' => $market??[ ]])
 
     {{--  carlottery  --}}
-    @include('frontend._partials.carlottery', ['lottery' => $lottery?? [ ]])
+    @include('frontend._partials.carlottery', ['lottery' => $lottery?? [ ], 'lotteryBg' => $lotteryBg])
 
 
 </main>
