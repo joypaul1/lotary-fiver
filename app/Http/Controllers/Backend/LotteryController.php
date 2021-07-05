@@ -4,10 +4,27 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Lottery;
+use App\Models\Name;
 use Illuminate\Http\Request;
 
 class LotteryController extends Controller
 {
+
+
+    // public function name()
+    // {
+    //     $name = Name::whereId(2)->first();
+
+    //     return view('backend.protocalSection.name', ['name' =>$name]);
+    // }
+
+    // public function nameStore(Request $request)
+    // {
+
+    //     Name::firstorCreate(['id'=>2], ['name' => $request->name]);
+    //     return back()->with('message', 'Data Created Successfully.');
+    // }
+
     /**
      * Display a listing of the resource.
      *

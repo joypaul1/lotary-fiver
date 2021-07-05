@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Name;
 use App\Models\Protocol;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -11,6 +12,21 @@ use NabilAnam\SimpleUpload\SimpleUpload;
 class ProtocalController extends Controller
 {
     // private $dir = 'backend.protocal';
+
+    public function name()
+    {
+        $name = Name::whereId(1)->first();
+
+        return view('backend.protocalSection.name', ['name' =>$name]);
+    }
+
+    public function nameStore(Request $request)
+    {
+
+        Name::updateorCreate(['id'=>1], ['name' => $request->name, 'id'=>1]);
+        return back()->with('message', 'Data Created Successfully.');
+    }
+
     public function index()
     {
         $protocols = Protocol::select('id', 'title', 'logo','image', 'highlight')->paginate(15);

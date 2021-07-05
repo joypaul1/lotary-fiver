@@ -1,6 +1,6 @@
 <li class="{{ strpos($routeName, 'backend.headerSection') === 0 ? 'active open' : ''}}">
     <a href="#" class="dropdown-toggle">
-        <i class="menu-icon fa fa-shopping-cart"></i>
+        <i class="menu-icon fa fa-gear"></i>
         <span class="menu-text">
             Header Section
         </span>

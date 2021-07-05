@@ -8,10 +8,23 @@ use App\Models\Slider;
 use Illuminate\Http\Request;
 use App\Http\Requests\Market\StoreRequest;
 use App\Http\Requests\Market\UpdateRequest;
+use App\Models\Name;
 use NabilAnam\SimpleUpload\SimpleUpload;
 
 class MarketController extends Controller
 {
+
+    public function name()
+    {
+        $name = Name::whereId(3)->first();
+        return view('backend.marktetSection.name', ['name' =>$name]);
+    }
+
+    public function nameStore(Request $request)
+    {
+        Name::updateorCreate(['id'=>3], ['name' => $request->name, 'id' => 3]);
+        return back()->with('message', 'Data Created Successfully.');
+    }
     public function index()
     {
         $datas = Market::paginate(10);
