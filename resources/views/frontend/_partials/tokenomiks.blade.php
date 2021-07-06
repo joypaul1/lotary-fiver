@@ -31,34 +31,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="pgBr">
-                        <p class="pgName">
-                            Pancakeswap liquidity pool.
-                        </p>
-                        <div class="pgBox">
-                            <span class="pgLne"></span>
-                            <div class="pgVal">
-                                <h4 class="pgPtg">
-                                    <span class="pgPtgNbr">46</span>
-                                    <span class="pgPtgSgn">%</span>
-                                </h4>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pgBr">
-                        <p class="pgName">
-                            Burnt.
-                        </p>
-                        <div class="pgBox">
-                            <span class="pgLne"></span>
-                            <div class="pgVal">
-                                <h4 class="pgPtg">
-                                    <span class="pgPtgNbr">50</span>
-                                    <span class="pgPtgSgn">%</span>
-                                </h4>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
                 <p class="tkBtmTxt" data-aos="fade-up">
                     Current tokenomiks 33%, Circulating supply | 66% Burnt
