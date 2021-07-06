@@ -15,16 +15,19 @@ Route::group(['prefix' => 'sadmin', 'middleware' => ['auth:admin', 'admin'], 'na
     require_once __DIR__ . '/backend/site_config.php';
 
     // Product
-    require_once __DIR__ . '/backend/product.php';
+    // require_once __DIR__ . '/backend/product.php';
 
     // Customer
-    require_once __DIR__ . '/backend/customer.php';
+    // require_once __DIR__ . '/backend/customer.php';
 
     // Order
-    require_once __DIR__ . '/backend/order.php';
+    // require_once __DIR__ . '/backend/order.php';
 
     // Purchase
-    require_once __DIR__ . '/backend/purchase.php';
+    // require_once __DIR__ . '/backend/purchase.php';
+
+    // menu
+    require_once __DIR__ . '/backend/menu.php';
 
     // headerSection
     require_once __DIR__ . '/backend/headerSection.php';

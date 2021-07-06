@@ -30,6 +30,9 @@
         @include('backend.partials.sidebar_modules.site_config')
 
         {{-- Site Config --}}
+        @include('backend.partials.sidebar_modules.menuSection')
+
+        {{-- Site Config --}}
         @include('backend.partials.sidebar_modules.social')
 
         {{-- header Section  --}}
@@ -38,14 +41,13 @@
         {{-- protocalSection Section  --}}
         @include('backend.partials.sidebar_modules.protocalSection')
 
-        {{-- protocalSection Section  --}}
+        {{-- tokenSection Section  --}}
         @include('backend.partials.sidebar_modules.tokenSection')
 
         {{-- marketSection Section  --}}
         @include('backend.partials.sidebar_modules.marketSection')
 
         {{-- lottarySection Section  --}}
-
         @include('backend.partials.sidebar_modules.lottarySection')
 
     </ul>
