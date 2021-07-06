@@ -38,13 +38,16 @@
         {{-- protocalSection Section  --}}
         @include('backend.partials.sidebar_modules.protocalSection')
 
+        {{-- protocalSection Section  --}}
+        @include('backend.partials.sidebar_modules.tokenSection')
+
         {{-- marketSection Section  --}}
         @include('backend.partials.sidebar_modules.marketSection')
 
         {{-- lottarySection Section  --}}
 
         @include('backend.partials.sidebar_modules.lottarySection')
-        
+
     </ul>
 
     <div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">

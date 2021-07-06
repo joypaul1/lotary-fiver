@@ -2,13 +2,16 @@
 
 use Illuminate\Support\Facades\Route;
 
-// TOKENOMIKS
-// tokennomiks
- Route::group(['prefix' => '/tokennomiks'], function (){
-    Route::get('/',             'TokenController@index')->name('backend.tokennomiks.index');
-    Route::get('/create',       'TokenController@create')->name('backend.tokennomiks.create');
-    Route::get('/edit/{id}',    'TokenController@edit')->name('backend.tokennomiks.edit');
-    Route::get('/update/{id}',  'TokenController@update')->name('backend.tokennomiks.update');
-    Route::get('/delete/{id}',  'TokenController@destroy')->name('backend.tokennomiks.destroy');
-
+// tokenSection
+ Route::group(['prefix' => '/tokenSection'], function (){
+    Route::get('/',             'TokenController@index')->name('backend.tokenSection.index');
+    Route::get('/create',       'TokenController@create')->name('backend.tokenSection.create');
+    Route::post('/store',       'TokenController@store')->name('backend.tokenSection.store');
+    Route::get('/right',        'TokenController@rightIndex')->name('backend.tokenSection.right.index');
+    Route::post('/right/store', 'TokenController@rightStore')->name('backend.tokenSection.right.store');
+    Route::get('/edit/{id}',    'TokenController@edit')->name('backend.tokenSection.edit');
+    Route::post('/update/{id}', 'TokenController@update')->name('backend.tokenSection.update');
+    Route::get('/delete/{id}',  'TokenController@destroy')->name('backend.tokenSection.destroy');
+    Route::get('/name',         'LotteryBgController@name')->name('backend.tokenSection.name');
+    Route::post('/name/store',  'LotteryBgController@nameStore')->name('backend.tokenSection.name.store');
 });

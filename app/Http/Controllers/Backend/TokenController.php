@@ -3,10 +3,28 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Name;
+use App\Models\TokenLeft;
+use App\Models\TokenRight;
 use Illuminate\Http\Request;
+use Symfony\Component\CssSelector\Parser\Token;
 
 class TokenController extends Controller
 {
+
+
+    public function name()
+    {
+        $name = Name::whereId(2)->first();
+        return view('backend.tokenSection.name', ['name' =>$name]);
+    }
+
+    public function nameStore(Request $request)
+    {
+        Name::updateorCreate(['id'=>2], ['name' => $request->name, 'id' => 2]);
+        return back()->with('message', 'Data Created Successfully.');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +32,8 @@ class TokenController extends Controller
      */
     public function index()
     {
-        //
+        $datas = TokenLeft::paginate(10);
+        return view('backend.tokenSection.index',['datas' =>$datas]);
     }
 
     /**
@@ -24,7 +43,8 @@ class TokenController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.tokenSection.create');
+        // dd(33);
     }
 
     /**
@@ -35,7 +55,9 @@ class TokenController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        TokenLeft::create($request->all());
+        return back()->with('message', 'Data added successfully.');
     }
 
     /**
@@ -57,7 +79,7 @@ class TokenController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('backend.tokenSection.edit',['data' =>TokenLeft::find($id)]);
     }
 
     /**
@@ -69,7 +91,9 @@ class TokenController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->except('_token' , '_method');
+        TokenLeft::whereId($id)->update($data);
+        return back()->with('message', 'Data updated successfully.');
     }
 
     /**
@@ -80,6 +104,16 @@ class TokenController extends Controller
      */
     public function destroy($id)
     {
-        //
+        TokenLeft::whereId($id)->delete();
+        return back()->with('message', 'Data deleted successfully.');
+    }
+
+    public function rightIndex (){
+        return view('backend.tokenSection.right', ['data' => TokenRight::first() ]);
+    }
+    public function rightStore(Request $request)
+    {
+        TokenRight::updateorcreate(['id'=>1], ['footer_text'=>$request->footer_text, 'description'=> $request->description]);
+        return back()->with('message', 'Data Updated Successfully.');
     }
 }

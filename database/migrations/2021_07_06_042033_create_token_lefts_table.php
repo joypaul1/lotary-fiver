@@ -16,7 +16,7 @@ class CreateTokenLeftsTable extends Migration
         Schema::create('token_lefts', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('percent');
-            $table->string('string');
+            $table->string('title');
             $table->timestamps();
         });
     }
