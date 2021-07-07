@@ -27,7 +27,7 @@ class HomeController extends Controller
         $tokenLeft      = TokenLeft::get(['percent', 'title']);
         $tokenRight     = TokenRight::first(['description', 'footer_text']);
         $sectionName    = Name::orderBy('id')->get();
-        $cusMenus          = Menus::get(['link', 'name', 'is_token_menu', 'Id', 'mobile_menu']);
+        $cusMenus       = Menus::get(['link', 'name', 'is_token_menu','header_mobile_menu', 'id', 'mobile_menu']);
         return view('frontend.home',compact('headerSection', 'protocal', 'market', 'lottery', 'lotteryBg', 'tokenLeft', 'tokenRight', 'sectionName', 'cusMenus'));
     }
 }

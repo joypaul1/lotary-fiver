@@ -5,7 +5,7 @@
 <!-- header content start -->
 <header id="header" class="header">
     <div class="headerContainer">
-        @include('frontend._headerSection.logoBox',     ['logo' =>$headerSection->logo??' '])
+        @include('frontend._headerSection.logoBox',     ['logo' =>$headerSection->logo??' ','cusMenus' =>$cusMenus??[]])
         @include('frontend._headerSection.pBarBtn',     ['cusMenus' =>$cusMenus??[]])
         @include('frontend._headerSection.headerRight', ['cusMenus' =>$cusMenus??[], 'sectionName'=>$sectionName] )
     </div>

@@ -27,7 +27,7 @@
         {{-- @include('backend.partials.sidebar_modules.customer') --}}
 
         {{-- Site Config --}}
-        @include('backend.partials.sidebar_modules.site_config')
+        {{-- @include('backend.partials.sidebar_modules.site_config') --}}
 
         {{-- Site Config --}}
         @include('backend.partials.sidebar_modules.menuSection')

@@ -26,6 +26,7 @@ class MenuController extends Controller
         $data                   = $request->all();
         $data['is_token_menu']  = $request->is_token_menu == 'on'?True: False;
         $data['mobile_menu']    = $request->mobile_menu == 'on'?True: False;
+        $data['header_mobile_menu']  = $request->header_mobile_menu == 'on'?True: False;
         Menus::create($data);
         return back()->with('message', 'Data Created successfully!');
 
@@ -41,6 +42,7 @@ class MenuController extends Controller
         $data                  = $request->except('_token');
         $data['is_token_menu'] = $request->is_token_menu == 'on'?True: False;
         $data['mobile_menu']   = $request->mobile_menu == 'on'?True: False;
+        $data['header_mobile_menu']  = $request->header_mobile_menu == 'on'?True: False;
         Menus::whereId($id)->update($data);
 
         return back()->with('message', 'Data Updated successfully!');

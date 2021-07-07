@@ -15,6 +15,7 @@ class AddMobileToMenusesTable extends Migration
     {
         Schema::table('menuses', function (Blueprint $table) {
             $table->boolean('mobile_menu')->default(false);
+            $table->boolean('header_mobile_menu')->default(false);
         });
     }
 
