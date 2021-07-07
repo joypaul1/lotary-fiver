@@ -23,7 +23,7 @@ class ProtocalController extends Controller
     public function nameStore(Request $request)
     {
 
-        Name::updateorCreate(['id'=>1], ['name' => $request->name, 'id'=>1]);
+        Name::updateOrCreate(['id'=>1], ['name' => $request->name, 'id'=>1]);
         return back()->with('message', 'Data Created Successfully.');
     }
 

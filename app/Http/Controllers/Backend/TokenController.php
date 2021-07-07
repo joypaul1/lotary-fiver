@@ -21,7 +21,13 @@ class TokenController extends Controller
 
     public function nameStore(Request $request)
     {
-        Name::updateorCreate(['id'=>2], ['name' => $request->name, 'id' => 2]);
+        $name = Name::whereId(2)->first();
+        if($name){
+            $name =$name->update(['name'=>$request->name]);
+        }else{
+            Name::create(['id'=>2, 'name'=> $request->name]);
+        }
+
         return back()->with('message', 'Data Created Successfully.');
     }
 

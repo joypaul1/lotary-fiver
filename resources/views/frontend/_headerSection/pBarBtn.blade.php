@@ -1,11 +1,11 @@
 <div class="pBarBtn">
-    <a href="">
-        <span>Official Telegram</span>
-    </a>
-    <a href="">
-        <span>ASSNSWAP</span>
-    </a>
-    <a href="">
-        <span>Buy Now</span>
-    </a>
+    @forelse ($cusMenus as $cusm)
+        <a  href="{{ $cusm->link??' ' }}" target="_blank">
+            <span>{{ $cusm->name??''}}</span>
+        </a>
+    @empty
+
+    @endforelse
+
 </div>
+

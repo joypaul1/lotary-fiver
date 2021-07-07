@@ -12,6 +12,6 @@ use Illuminate\Support\Facades\Route;
     Route::get('/edit/{id}',    'TokenController@edit')->name('backend.tokenSection.edit');
     Route::post('/update/{id}', 'TokenController@update')->name('backend.tokenSection.update');
     Route::get('/delete/{id}',  'TokenController@destroy')->name('backend.tokenSection.destroy');
-    Route::get('/name',         'LotteryBgController@name')->name('backend.tokenSection.name');
-    Route::post('/name/store',  'LotteryBgController@nameStore')->name('backend.tokenSection.name.store');
+    Route::get('/name',         'TokenController@name')->name('backend.tokenSection.name');
+    Route::post('/name/store',  'TokenController@nameStore')->name('backend.tokenSection.name.store');
 });

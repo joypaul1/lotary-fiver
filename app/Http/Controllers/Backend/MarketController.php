@@ -22,7 +22,7 @@ class MarketController extends Controller
 
     public function nameStore(Request $request)
     {
-        Name::updateorCreate(['id'=>3], ['name' => $request->name, 'id' => 3]);
+        Name::updateOrCreate(['id'=>3], ['name' => $request->name, 'id' => 3]);
         return back()->with('message', 'Data Created Successfully.');
     }
     public function index()

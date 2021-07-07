@@ -1,7 +1,7 @@
 <section id="tokenomiks" class="tokenomiks lightBLack">
     <div class="container">
         <h2>
-            initial Tokenomiks
+            {{ $sectionName[1]->name??' ' }}
         </h2>
         {{-- @foreach ($market as $mar)
             @dd($mar)
@@ -9,68 +9,47 @@
         <div class="tkWrapper">
             <div class="progress">
                 <div class="pBarBtn">
-                    <a href="">
-                        <span>Official Telegram</span>
-                    </a>
-                    <a href="">
-                        <span>Buy Now</span>
-                    </a>
+                    @forelse ($cusMenus->where('is_token_menu', true) as $cusm)
+                        <a  href="{{ $cusm->link??' ' }}" target="_blank">
+                            <span>{{ $cusm->name??''}}</span>
+                        </a>
+                    @empty
+
+                    @endforelse
+
                 </div>
                 <div class="pgContainer" data-aos="fade-up">
-                    <div class="pgBr">
-                        <p class="pgName">
-                            Development & marketing fund.
-                        </p>
-                        <div class="pgBox">
-                            <span class="pgLne"></span>
-                            <div class="pgVal">
-                                <h4 class="pgPtg">
-                                    <span class="pgPtgNbr">4</span>
-                                    <span class="pgPtgSgn">%</span>
-                                </h4>
+                    @forelse ($tokenLeft as $left)
+                        <div class="pgBr">
+                            <p class="pgName">
+                                {{$left->title??''}}
+                            </p>
+                            <div class="pgBox">
+                                <span class="pgLne"></span>
+                                <div class="pgVal">
+                                    <h4 class="pgPtg">
+                                        <span class="pgPtgNbr">{{ $left->percent??'' }}</span>
+                                        <span class="pgPtgSgn">%</span>
+                                    </h4>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    @empty
+
+                    @endforelse
+
 
                 </div>
                 <p class="tkBtmTxt" data-aos="fade-up">
-                    Current tokenomiks 33%, Circulating supply | 66% Burnt
+                    {{ $tokenRight->footer_text??' ' }}
                 </p>
             </div>
             <div class="tkCounter" data-aos="fade-up">
                 <div class="tkInner">
                     <div class="tkItem">
-                        <h6>
-                            0.000006883
-                        </h6>
-                        <p>
-                            Current Price
-                        </p>
+                        {!! $tokenRight->description??' ' !!}
                     </div>
-                    <div class="tkItem">
-                        <h6>
-                            2,146,706
-                        </h6>
-                        <p>
-                            Holders
-                        </p>
-                    </div>
-                    <div class="tkItem">
-                        <h6>
-                            584,320,455,679,993.6
-                        </h6>
-                        <p>
-                            Supply
-                        </p>
-                    </div>
-                    <div class="tkItem">
-                        <h6>
-                            $4,021,877,696.45
-                        </h6>
-                        <p>
-                            Market Cap
-                        </p>
-                    </div>
+
                 </div>
                 <div class="pgAnimation">
                     <span class="pgaContent"></span>

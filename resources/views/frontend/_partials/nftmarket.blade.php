@@ -1,7 +1,7 @@
 <section id="nftmarket" class="nftmarket darkBLack">
     <div class="container">
         <h2>
-            NFT Marketplace
+            {{ $sectionName[2]->name??' ' }}
         </h2>
           @foreach ($market as $mar)
             {{-- @dd($mar) --}}

@@ -78,6 +78,22 @@
                 @endif
             </div>
         </div>
+        <div class="form-group">
+            <label class="col-sm-2 bolder" for="link">Mobile Menu
+            </label>
+            <div class="col-sm-6">
+                <div class="checkbox">
+                    <label>
+                        <input name="mobile_menu" type="checkbox" class="ace input-lg"  {{ $data->mobile_menu == true? 'checked':' '}}>
+                        <span class="lbl bigger-120 text-success">(Yes/No?)</span>
+                    </label>
+                </div>
+                <strong class="red">{{ $errors->first('mobile_menu') }}</strong>
+                @if($errors->first('mobile_menu'))
+                    <br>
+                @endif
+            </div>
+        </div>
 
 
 

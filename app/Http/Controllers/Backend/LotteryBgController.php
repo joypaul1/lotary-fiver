@@ -19,7 +19,7 @@ class LotteryBgController extends Controller
 
     public function nameStore(Request $request)
     {
-        Name::updateorCreate(['id'=>4], ['name' => $request->name, 'id' => 4]);
+        Name::updateOrCreate(['id'=>4], ['name' => $request->name, 'id' => 4]);
         return back()->with('message', 'Data Created Successfully.');
     }
 

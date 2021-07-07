@@ -5,11 +5,9 @@
 <!-- header content start -->
 <header id="header" class="header">
     <div class="headerContainer">
-
-        @include('frontend._headerSection.logoBox', ['logo' =>$headerSection->logo??' '])
-        @include('frontend._headerSection.pBarBtn')
-        @include('frontend._headerSection.headerRight' )
-
+        @include('frontend._headerSection.logoBox',     ['logo' =>$headerSection->logo??' '])
+        @include('frontend._headerSection.pBarBtn',     ['cusMenus' =>$cusMenus??[]])
+        @include('frontend._headerSection.headerRight', ['cusMenus' =>$cusMenus??[], 'sectionName'=>$sectionName] )
     </div>
 </header>
 <!-- /header content end -->
@@ -23,12 +21,11 @@
 
     {{--  roadmap  --}}
     {{-- @include('frontend._partials.roadmap', ['protocal' =>  $protocal??' ' ]) --}}
-
     <section id="roadmap" class="roadmap lightBLack">
         <canvas id="roadmapBg"></canvas>
         <div class="container">
             <h2>
-                ASSN PROTOCOL
+               {{ $sectionName[0]->name??' ' }}
             </h2>
             @if ($protocal)
             <div class="rmWrapper">
@@ -67,13 +64,14 @@
 
 
     {{--  tokenomiks  --}}
-    @include('frontend._partials.tokenomiks', ['market' =>$market??[]])
+    @include('frontend._partials.tokenomiks', ['tokenLeft' =>$tokenLeft??[], 'tokenRight' => $tokenRight,
+    'sectionName'=>$sectionName,'cusMenus'=> $cusMenus])
 
     {{--  nftmarket  --}}
-    @include('frontend._partials.nftmarket', ['market' => $market??[ ]])
+    @include('frontend._partials.nftmarket', ['market' => $market??[ ],'sectionName'=>$sectionName,])
 
     {{--  carlottery  --}}
-    @include('frontend._partials.carlottery', ['lottery' => $lottery?? [ ], 'lotteryBg' => $lotteryBg])
+    @include('frontend._partials.carlottery', ['lottery' => $lottery?? [ ], 'lotteryBg' => $lotteryBg,'sectionName'=>$sectionName,])
 
 
 </main>
