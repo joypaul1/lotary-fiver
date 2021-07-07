@@ -67,7 +67,7 @@ class HeaderController extends Controller
                 ->file($requestImage)
                 ->dirName('image')
                 ->deleteIfExists($image)
-                ->resizeImage($width, $height)
+                // ->resizeImage($width, $height)
                 ->save();
         return $image;
     }

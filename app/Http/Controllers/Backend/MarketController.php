@@ -44,7 +44,7 @@ class MarketController extends Controller
         $data['image']  = (new SimpleUpload)
                             ->file($request->image)
                             ->dirName('market')
-                            ->resizeImage(420, 420)
+                            // ->resizeImage(420, 420)
                             ->save();
 
         Market::create($data);
@@ -67,7 +67,7 @@ class MarketController extends Controller
             $data['image']  = (new SimpleUpload)
                                 ->file($request->image)
                                 ->dirName('market')
-                                ->resizeImage(420, 420)
+                                // ->resizeImage(420, 420)
                                 ->save();
         }
 

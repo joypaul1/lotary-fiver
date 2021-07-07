@@ -36,7 +36,7 @@ class LotteryBgController extends Controller
         if ($request->image) {
             $data = (new SimpleUpload)->file($request->image)
             ->dirName('market')
-            ->resizeImage(700, 400)
+            // ->resizeImage(700, 400)
             ->save();
         }
 
