@@ -9,13 +9,7 @@
 
 <div class="footer hidden-print">
     <div class="footer-inner">
-        <div class="footer-content">
-            <span class="bigger-110">
-                Copyright &copy; <span class="blue bolder">{{ $info->name }}</span>
-            </span>
-            <strong class="pull-right custom">Developed By: <a href="https://www.smartsoftware.com.bd/"
-                                                               target="__blank"> Smart Software Ltd</a></strong>
-        </div>
+
     </div>
 </div>
 
