@@ -16,7 +16,19 @@ class SocialController extends Controller
 
     public function store(Request $request)
     {
-        Social::first()->update($request->all());
+
+        Social::updateOrCreate(
+            ['id' => 1],
+            [
+                'youtube' => $request->youtube,
+                'instagram' => $request->instagram,
+                'facebook' => $request->facebook,
+                'twitter' => $request->twitter,
+                'telegram' => $request->telegram,
+                'reddit' => $request->reddit,
+                'discord' => $request->discord,
+            ]);
+
         return back()->with('message', 'Data Created Successfully.');
     }
 }
