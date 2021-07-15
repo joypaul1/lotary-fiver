@@ -9,7 +9,9 @@
                 {{ $sectionName[2]->name??' ' }}
             </h2>
             <figure>
-                <img src="{{ asset($lotteryBg->image)??' ' }}" alt="lamborgini">
+                @if ($lotteryBg)
+                    <img src="{{ asset($lotteryBg->image)??' ' }}" alt="{{ $lotteryBg->image }}">
+                @endif
             </figure>
             <article>
                 @if ($lottery)
