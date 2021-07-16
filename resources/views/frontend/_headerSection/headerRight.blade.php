@@ -21,12 +21,15 @@
 
                 </div>
             </li>
-            {{-- <li class="meuItem">
-                <a href="">
-                    <img src="src/media/image/Gold-eagle.png" alt="">
-                    <span>Whitepaper</span>
+            @forelse ($cusMenus->where('mobile_menu', false)->where('header_menu',false)->where('is_token_menu', false)->where('header_mobile_menu',false) as $nocusm)
+            <li class="meuItem">
+                <a href="{{ $nocusm->link??' ' }}">
+                    <img src="{{asset('frontend') }}/src/media/image/Gold-eagle.png" alt="{{$nocusm->name?? ' '}}">
+                    <span>{{$nocusm->name?? ' '}}</span>
                 </a>
-            </li> --}}
+            </li>
+            @empty
+            @endforelse
 
             <li class="meuItem">
                 <a href="#roadmap">

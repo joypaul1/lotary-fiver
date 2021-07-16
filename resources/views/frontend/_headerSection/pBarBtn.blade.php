@@ -1,5 +1,5 @@
 <div class="pBarBtn">
-    @forelse ($cusMenus as $cusm)
+    @forelse ($cusMenus->where('header_menu', true) as $cusm)
         <a  href="{{ $cusm->link??' ' }}" target="_blank">
             <span>{{ $cusm->name??''}}</span>
         </a>

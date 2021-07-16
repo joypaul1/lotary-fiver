@@ -69,9 +69,9 @@
             <label class="col-sm-2 bolder" for="link">Token Buttons
             </label>
             <div class="col-sm-6">
-                <div class="radio">
+                <div class="checkbox">
                     <label>
-                        <input name="is_token_menu" type="radio" class="ace input-lg">
+                        <input name="is_token_menu" type="checkbox" class="ace input-lg">
                         <span class="lbl bigger-120 text-success">(Yes/No?)</span>
                     </label>
                 </div>
@@ -82,12 +82,12 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="col-sm-2 bolder" for="link">Mobile Menu Button
+            <label class="col-sm-2 bolder" for="mobile_menu">Mobile Menu Button
             </label>
             <div class="col-sm-6">
-                <div class="radio">
+                <div class="checkbox">
                     <label>
-                        <input name="mobile_menu" type="radio" class="ace input-lg">
+                        <input name="mobile_menu" type="checkbox" class="ace input-lg">
                         <span class="lbl bigger-120 text-success">(Yes/No?)</span>
                     </label>
                 </div>
@@ -98,12 +98,12 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="col-sm-2 bolder" for="link">Logo Button
+            <label class="col-sm-2 bolder" for="header_mobile_menu">Logo Button
             </label>
             <div class="col-sm-6">
-                <div class="radio">
+                <div class="checkbox">
                     <label>
-                        <input name="header_mobile_menu" type="radio" class="ace input-lg" >
+                        <input name="header_mobile_menu" type="checkbox" class="ace input-lg" >
                         <span class="lbl bigger-120 text-success">(Yes/No?)</span>
                     </label>
                 </div>
@@ -114,17 +114,17 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="col-sm-2 bolder" for="link">Header Button
+            <label class="col-sm-2 bolder" for="header_menu">Header Button
             </label>
             <div class="col-sm-6">
-                <div class="radio">
+                <div class="checkbox">
                     <label>
-                        <input name="header_mobile_menu" type="radio" class="ace input-lg" >
+                        <input name="header_menu" type="checkbox" class="ace input-lg" >
                         <span class="lbl bigger-120 text-success">(Yes/No?)</span>
                     </label>
                 </div>
-                <strong class="red">{{ $errors->first('header_mobile_menu') }}</strong>
-                @if($errors->first('header_mobile_menu'))
+                <strong class="red">{{ $errors->first('header_menu') }}</strong>
+                @if($errors->first('header_menu'))
                     <br>
                 @endif
             </div>
@@ -133,7 +133,7 @@
             <!-- Buttons -->
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-6">
-                    <button class="btn btn-sm btn-success submit create-button"><i class="fa fa-save"></i> Add
+                    <button class="btn btn-sm btn-success submit create-button"><i class="fa fa-save"></i> Save
                     </button>
 
 
@@ -142,30 +142,6 @@
         </form>
     </div>
 
-    <div class="col-sm-3">
-        <div class="widget-box first">
-            <div class="widget-header">
-                <h4 class="widget-name">Current Image</h4>
-
-                <div class="widget-toolbar">
-                    <a href="#" data-action="collapse">
-                        <i class="ace-icon fa fa-chevron-up"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="widget-body"
-                 style="display:flex; align-items: center; justify-content: center; height:100px;">
-                <div class="widget-main">
-                    <div class="form-group">
-                        <div class="col-xs-12">
-                            <img id="current" src="" width="100" height="100" class="img-responsive center-block"
-                                 alt="image">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 @endsection
 
 @push('js')
@@ -180,5 +156,8 @@
                 reader.readAsDataURL(input.files[0]);
             }
         }
+        $('input.input-lg').on('change', function() {
+            $('input.input-lg').not(this).prop('checked', false);
+        });
     </script>
 @endpush

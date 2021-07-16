@@ -23,10 +23,11 @@ class MenuController extends Controller
 
     public function store(Request $request)
     {
-        $data                   = $request->all();
-        $data['is_token_menu']  = $request->is_token_menu == 'on'?True: False;
-        $data['mobile_menu']    = $request->mobile_menu == 'on'?True: False;
-        $data['header_mobile_menu']  = $request->header_mobile_menu == 'on'?True: False;
+        $data                           = $request->all();
+        $data['is_token_menu']          = $request->is_token_menu == 'on'?True: False;
+        $data['mobile_menu']            = $request->mobile_menu == 'on'?True: False;
+        $data['header_mobile_menu']     = $request->header_mobile_menu == 'on'?True: False;
+        $data['header_menu']            = $request->header_menu == 'on'?True: False;
         Menus::create($data);
         return back()->with('message', 'Data Created successfully!');
 
@@ -39,10 +40,11 @@ class MenuController extends Controller
 
     public function update(Request $request, $id)
     {
-        $data                  = $request->except('_token');
-        $data['is_token_menu'] = $request->is_token_menu == 'on'?True: False;
-        $data['mobile_menu']   = $request->mobile_menu == 'on'?True: False;
-        $data['header_mobile_menu']  = $request->header_mobile_menu == 'on'?True: False;
+        $data                           = $request->except('_token');
+        $data['is_token_menu']          = $request->is_token_menu == 'on'?True: False;
+        $data['mobile_menu']            = $request->mobile_menu == 'on'?True: False;
+        $data['header_mobile_menu']     = $request->header_mobile_menu == 'on'?True: False;
+        $data['header_menu']            = $request->header_menu == 'on'?True: False;
         Menus::whereId($id)->update($data);
 
         return back()->with('message', 'Data Updated successfully!');

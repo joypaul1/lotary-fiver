@@ -28,7 +28,7 @@
 
         {{-- name --}}
         <div class="form-group">
-            <label class="col-sm-2 bolder" for="name">Menu Name
+            <label class="col-sm-3 bolder" for="name">Menu Name
             </label>
             <div class="col-sm-6">
                 <input name="name"
@@ -46,7 +46,7 @@
         </div>
         {{-- link --}}
         <div class="form-group">
-            <label class="col-sm-2 bolder" for="link">Link
+            <label class="col-sm-3 bolder" for="link">Link
             </label>
             <div class="col-sm-6">
                 <input name="link"
@@ -63,7 +63,7 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="col-sm-2 bolder" for="link">Is Token Menu
+            <label class="col-sm-3 bolder" for="link">Is Token Menu
             </label>
             <div class="col-sm-6">
                 <div class="checkbox">
@@ -79,7 +79,7 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="col-sm-2 bolder" for="link">Mobile Menu
+            <label class="col-sm-3 bolder" for="mobile_menu">Mobile Menu
             </label>
             <div class="col-sm-6">
                 <div class="checkbox">
@@ -95,7 +95,7 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="col-sm-2 bolder" for="link">Header Mobile menu
+            <label class="col-sm-3 bolder" for="header_mobile_menu">Header Mobile menu
             </label>
             <div class="col-sm-6">
                 <div class="checkbox">
@@ -110,13 +110,28 @@
                 @endif
             </div>
         </div>
-
+        <div class="form-group">
+            <label class="col-sm-3 bolder" for="header_menu">Header  menu
+            </label>
+            <div class="col-sm-6">
+                <div class="checkbox">
+                    <label>
+                        <input name="header_menu" type="checkbox" class="ace input-lg"  {{ $data->header_menu == true? 'checked':' '}}>
+                        <span class="lbl bigger-120 text-success">(Yes/No?)</span>
+                    </label>
+                </div>
+                <strong class="red">{{ $errors->first('header_menu') }}</strong>
+                @if($errors->first('header_menu'))
+                    <br>
+                @endif
+            </div>
+        </div>
 
 
             <!-- Buttons -->
             <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-6">
-                    <button class="btn btn-sm btn-success submit create-button"><i class="fa fa-save"></i> Add
+                <div class="col-sm-offset-3 col-sm-6">
+                    <button class="btn btn-sm btn-success submit create-button"><i class="fa fa-save"></i> Update
                     </button>
 
                 </div>
