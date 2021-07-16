@@ -58,7 +58,3 @@ require_once __DIR__ . '/frontend/home.php';
 
 
 
-Route::get('users', function() {
-    $items =  User::with('childItems')->get();
-    return view('item', compact('items'));
-});

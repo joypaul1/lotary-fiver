@@ -50,25 +50,28 @@
             </label>
             <div class="col-sm-6">
                 <input name="link"
-                       type="text"
-                       id="link"
-                       required
-                       value="{{ old('link') }}"
-                       class="form-control"
-                       >
+                type="text"
+                id="link"
+                required
+                value="{{ old('link') }}"
+                class="form-control"
+                >
                 <strong class="red">{{ $errors->first('link') }}</strong>
                 @if($errors->first('link'))
-                    <br>
+                <br>
                 @endif
+            </div>
+            <div class="col-sm-2">
+                (As Default Main Menu)
             </div>
         </div>
         <div class="form-group">
-            <label class="col-sm-2 bolder" for="link">Is Token Menu
+            <label class="col-sm-2 bolder" for="link">Token Buttons
             </label>
             <div class="col-sm-6">
-                <div class="checkbox">
+                <div class="radio">
                     <label>
-                        <input name="is_token_menu" type="checkbox" class="ace input-lg">
+                        <input name="is_token_menu" type="radio" class="ace input-lg">
                         <span class="lbl bigger-120 text-success">(Yes/No?)</span>
                     </label>
                 </div>
@@ -79,12 +82,12 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="col-sm-2 bolder" for="link">Is Mobile Menu
+            <label class="col-sm-2 bolder" for="link">Mobile Menu Button
             </label>
             <div class="col-sm-6">
-                <div class="checkbox">
+                <div class="radio">
                     <label>
-                        <input name="mobile_menu" type="checkbox" class="ace input-lg">
+                        <input name="mobile_menu" type="radio" class="ace input-lg">
                         <span class="lbl bigger-120 text-success">(Yes/No?)</span>
                     </label>
                 </div>
@@ -95,12 +98,28 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="col-sm-2 bolder" for="link">Header Mobile menu
+            <label class="col-sm-2 bolder" for="link">Logo Button
             </label>
             <div class="col-sm-6">
-                <div class="checkbox">
+                <div class="radio">
                     <label>
-                        <input name="header_mobile_menu" type="checkbox" class="ace input-lg" >
+                        <input name="header_mobile_menu" type="radio" class="ace input-lg" >
+                        <span class="lbl bigger-120 text-success">(Yes/No?)</span>
+                    </label>
+                </div>
+                <strong class="red">{{ $errors->first('header_mobile_menu') }}</strong>
+                @if($errors->first('header_mobile_menu'))
+                    <br>
+                @endif
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 bolder" for="link">Header Button
+            </label>
+            <div class="col-sm-6">
+                <div class="radio">
+                    <label>
+                        <input name="header_mobile_menu" type="radio" class="ace input-lg" >
                         <span class="lbl bigger-120 text-success">(Yes/No?)</span>
                     </label>
                 </div>

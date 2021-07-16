@@ -6,7 +6,7 @@
         </div>
         <div class="container">
             <h2>
-                {{ $sectionName[2]->name??' ' }}
+                {{ $sectionName[3]->name??' ' }}
             </h2>
             <figure>
                 @if ($lotteryBg)

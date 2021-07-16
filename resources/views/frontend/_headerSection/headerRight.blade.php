@@ -13,23 +13,20 @@
             <li class="meuItem">
                 <div class="pBarBtn">
                     @forelse ($cusMenus->where('mobile_menu', true) as $cusm)
-
                         <a  href="{{ $cusm->link??' ' }}" target="_blank">
                             <span>{{ $cusm->name??''}}</span>
                         </a>
                     @empty
                     @endforelse
-                    {{-- <a href="">
-                        <span>Official Telegram</span>
-                    </a>
-                    <a href="">
-                        <span>Buy Now</span>
-                    </a>
-                    <a href="">
-                        <span>Buy Now</span>
-                    </a> --}}
+
                 </div>
             </li>
+            {{-- <li class="meuItem">
+                <a href="">
+                    <img src="src/media/image/Gold-eagle.png" alt="">
+                    <span>Whitepaper</span>
+                </a>
+            </li> --}}
 
             <li class="meuItem">
                 <a href="#roadmap">
