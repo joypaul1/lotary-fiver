@@ -31,7 +31,7 @@ class LotteryBgController extends Controller
 
     public function store(Request $request)
     {
-        $lottery = LotteryBg::first();
+
 
         if ($request->image) {
             $data = (new SimpleUpload)->file($request->image)
@@ -40,7 +40,7 @@ class LotteryBgController extends Controller
             ->save();
         }
 
-        LotteryBg::firstOrCreate(['id'=> 1], ['image' => $data]);
+        LotteryBg::updateOrCreate(['id'=> 1], ['image' => $data]);
         return back()->with('message', 'Data Updated successfully!');
     }
 }
