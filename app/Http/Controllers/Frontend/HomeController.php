@@ -10,6 +10,7 @@ use App\Models\Market;
 use App\Models\Menus;
 use App\Models\Name;
 use App\Models\Protocol;
+use App\Models\TokenFooter;
 use App\Models\TokenLeft;
 use App\Models\TokenRight;
 use Illuminate\Http\Request;
@@ -25,9 +26,10 @@ class HomeController extends Controller
         $lottery        = Lottery::select('title', 'description')->get();
         $lotteryBg      = LotteryBg::first();
         $tokenLeft      = TokenLeft::get(['percent', 'title']);
-        $tokenRight     = TokenRight::first(['description', 'footer_text']);
+        $tokenRight     = TokenRight::get(['title', 'amount']);
         $sectionName    = Name::orderBy('id')->get();
+        $tokenFooter    = TokenFooter::first();
         $cusMenus       = Menus::get(['link', 'name', 'is_token_menu','header_mobile_menu','header_menu', 'id', 'mobile_menu']);
-        return view('frontend.home',compact('headerSection', 'protocal', 'market', 'lottery', 'lotteryBg', 'tokenLeft', 'tokenRight', 'sectionName', 'cusMenus'));
+        return view('frontend.home',compact('headerSection', 'protocal', 'market', 'lottery', 'lotteryBg', 'tokenLeft', 'tokenRight', 'sectionName', 'cusMenus', 'tokenFooter'));
     }
 }

@@ -76,7 +76,7 @@
 
     {{--  tokenomiks  --}}
     @include('frontend._partials.tokenomiks', ['tokenLeft' =>$tokenLeft??[], 'tokenRight' => $tokenRight,
-    'sectionName'=>$sectionName,'cusMenus'=> $cusMenus])
+    'sectionName'=>$sectionName,'cusMenus'=> $cusMenus, 'tokenFooter' => $tokenFooter])
 
     {{--  nftmarket  --}}
     @include('frontend._partials.nftmarket', ['market' => $market??[ ],'sectionName'=>$sectionName,])

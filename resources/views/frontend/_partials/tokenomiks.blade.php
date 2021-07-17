@@ -41,14 +41,25 @@
 
                 </div>
                 <p class="tkBtmTxt" data-aos="fade-up">
-                    {{ $tokenRight->footer_text??' ' }}
+                    {{ $tokenFooter->footer_text??' ' }}
                 </p>
             </div>
             <div class="tkCounter" data-aos="fade-up">
                 <div class="tkInner">
-                    <div class="tkItem">
-                        {!! $tokenRight->description??' ' !!}
-                    </div>
+                    @forelse ($tokenRight as $right)
+                        <div class="tkItem">
+
+                            <h6>
+                                {{ number_format($right->amount, 2) }}
+                            </h6>
+                            <p>
+                               {{ $right->title??' ' }}
+                            </p>
+                        </div>
+                    @empty
+
+                    @endforelse
+
 
                 </div>
                 <div class="pgAnimation">
