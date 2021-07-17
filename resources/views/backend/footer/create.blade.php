@@ -21,7 +21,7 @@
     ])
 
     <div class="col-sm-9">
-        <form class="form-horizontal" method="post" action="{{route('backend.footer.Section.index')}}"
+        <form class="form-horizontal" method="post" action="{{route('backend.footer.Section.store')}}"
               role="form"
               enctype="multipart/form-data">
         @csrf
@@ -48,12 +48,10 @@
             </div>
         </div>
 
-
-
             <!-- Buttons -->
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-6">
-                    <button class="btn btn-sm btn-success submit create-button"><i class="fa fa-save"></i> Add
+                    <button class="btn btn-sm btn-success submit create-button"><i class="fa fa-save"></i> Save
                     </button>
                 </div>
             </div>
