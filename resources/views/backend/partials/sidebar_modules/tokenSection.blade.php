@@ -44,6 +44,15 @@
             <b class="arrow"></b>
         </li>
     </ul>
+    <ul class="submenu">
+        <li class="{{ $routeName === 'backend.tokenSection.footer.text' ? 'open' : ''}}">
+            <a href="{{ route('backend.tokenSection.footer.text') }}">
+                <i class="menu-icon fa fa-caret-right"></i>
+                Footer Text
+            </a>
+            <b class="arrow"></b>
+        </li>
+    </ul>
 
 
 </li>

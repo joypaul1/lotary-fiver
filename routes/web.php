@@ -46,6 +46,8 @@ Route::group(['prefix' => 'sadmin', 'middleware' => ['auth:admin', 'admin'], 'na
 
     // social
     require_once __DIR__ . '/backend/social.php';
+
+    require_once __DIR__ . '/backend/footerSection.php';
 });
 
 

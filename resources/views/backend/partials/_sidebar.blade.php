@@ -50,6 +50,9 @@
         {{-- lottarySection Section  --}}
         @include('backend.partials.sidebar_modules.lottarySection')
 
+        {{-- footer Section  --}}
+        @include('backend.partials.sidebar_modules.footerSection')
+
     </ul>
 
     <div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Name;
+use App\Models\TokenFooter;
 use App\Models\TokenLeft;
 use App\Models\TokenRight;
 use Illuminate\Http\Request;
@@ -101,11 +102,11 @@ class TokenController extends Controller
 
 
     public function rightIndex (){
-    //    return  TokenRight::get();
+
         return view('backend.tokenSection.right', ['datas' => TokenRight::paginate(10) ]);
     }
     public function rightCreate  (){
-    //    return  TokenRight::get();
+
         return view('backend.tokenSection.rightCreate');
     }
     public function rightStore(Request $request)
@@ -132,4 +133,17 @@ class TokenController extends Controller
         TokenRight::whereId($id)->delete();
         return back()->with('message', 'Data deleted successfully.');
     }
+
+    public function footerText(Request $request)
+    {
+        if ($request->description) {
+            TokenFooter::updateOrCreate(['id'=>1], ['description' => $request->description]);
+        }
+        return view('backend.tokenSection.footerText', ['data' => TokenFooter::first()]);
+    }
+
+    // public function FunctionName(Type $var = null)
+    // {
+    //     # code...
+    // }
 }

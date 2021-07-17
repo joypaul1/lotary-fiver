@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
             SiteInfosTableSeeder::class,
             AboutusTableSeeder::class,
             NameTableSeeder::class,
+            FooterTableSeeder::class,
         ]);
     }
 }
