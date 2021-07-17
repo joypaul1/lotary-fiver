@@ -77,24 +77,12 @@ class TokenController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
         return view('backend.tokenSection.edit',['data' =>TokenLeft::find($id)]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         $data = $request->except('_token' , '_method');
@@ -102,24 +90,46 @@ class TokenController extends Controller
         return back()->with('message', 'Data updated successfully.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy($id)
     {
         TokenLeft::whereId($id)->delete();
         return back()->with('message', 'Data deleted successfully.');
     }
 
+
+
+
     public function rightIndex (){
-        return view('backend.tokenSection.right', ['data' => TokenRight::first() ]);
+    //    return  TokenRight::get();
+        return view('backend.tokenSection.right', ['datas' => TokenRight::paginate(10) ]);
+    }
+    public function rightCreate  (){
+    //    return  TokenRight::get();
+        return view('backend.tokenSection.rightCreate');
     }
     public function rightStore(Request $request)
     {
-        TokenRight::updateorcreate(['id'=>1], ['footer_text'=>$request->footer_text, 'description'=> $request->description]);
+        TokenRight::create($request->all());
         return back()->with('message', 'Data Updated Successfully.');
+    }
+
+    public function rightEdit($id)
+    {
+        return view('backend.tokenSection.editRight',['data' =>TokenRight::find($id)]);
+    }
+
+    public function rightUpdate(Request $request, $id)
+    {
+        $data = $request->except('_token' , '_method');
+        TokenRight::whereId($id)->update($data);
+        return back()->with('message', 'Data updated successfully.');
+    }
+
+
+    public function rightDestroy($id)
+    {
+        TokenRight::whereId($id)->delete();
+        return back()->with('message', 'Data deleted successfully.');
     }
 }
