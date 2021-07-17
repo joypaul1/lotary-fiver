@@ -20,7 +20,7 @@ class HomeController extends Controller
     {
 
         $headerSection  = HeaderSection::first(['title','logo', 'background_image','coin_gif', 'person_gif']);
-        $protocal       = Protocol::select('title', 'logo', 'description', 'highlight', 'image')->get();
+        $protocal       = Protocol::select('title', 'logo', 'highlight', 'image', 'id')->with('descriptions')->get();
         $market         = Market::select('title', 'image', 'description')->get();
         $lottery        = Lottery::select('title', 'description')->get();
         $lotteryBg      = LotteryBg::first();

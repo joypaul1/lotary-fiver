@@ -28,6 +28,7 @@
                {{ $sectionName[0]->name??' ' }}
             </h2>
             @if ($protocal)
+            {{-- @dd($protocal) --}}
             <div class="rmWrapper">
                 @foreach ($protocal as $pro)
                     <div class="rmItem">
@@ -49,7 +50,17 @@
                                 </article>
                             </div>
                             <div class="itemList">
-                                {!!  $pro->description??'' !!}
+                                <ul class="theList">
+                                    @forelse ($pro->descriptions as $proDes)
+                                        <li>
+                                            <span>-</span>{{ $proDes->description??'' }}
+                                        </li>
+                                    @empty
+
+                                    @endforelse
+
+                                <ul>
+                                {{-- {!!  $pro->description??'' !!} --}}
                             </div>
                         </div>
                     </div>

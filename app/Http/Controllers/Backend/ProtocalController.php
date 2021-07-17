@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Name;
+use App\Models\PCDescription;
 use App\Models\Protocol;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -72,16 +73,17 @@ class ProtocalController extends Controller
 
     public function edit(Protocol $protocol,$id )
     {
-        $data = $protocol->whereId($id)->first();
+        $data = $protocol->whereId($id)->With('descriptions')->first();
         return view('backend.protocalSection.edit', ['data' =>$data]);
     }
     public function update(Request $request,$id )
     {
-
+        $deletableData = null;
         $protocol = Protocol::find($id);
         $data = $request->except('_token', '_method');
+        // dd($data);
         if ($request->logo) {
-            // $data['logo']  = $this->imageUpload($request->file('logo'),'50' ,'50',  $protocol->logo);
+
             $data['logo']  = (new SimpleUpload)->file($request->logo)
                                 ->dirName('logo')
                                 ->deleteIfExists($protocol->logo)
@@ -97,7 +99,23 @@ class ProtocalController extends Controller
                         ->save();
 
         }
-        // dd($data);
+
+        if ($request->description) {
+                $existdata      = array_keys($data['description']);
+                $deletableData  =  $protocol->descriptions()->whereNotIn('id',  $existdata)->get();
+        }
+
+        if ($deletableData) {
+            foreach ($deletableData as $key => $delete) {
+                $delete->delete();
+            }
+        }
+
+        if ($request->new_description) {
+            foreach ($request->new_description as $key => $des) {
+                $protocol->descriptions()->create(['description' =>$des ]);
+            }
+        }
 
         $protocol->update($data);
 
@@ -106,10 +124,12 @@ class ProtocalController extends Controller
     }
     public function destroy (Protocol $protocol, $id)
     {
-        $data = $protocol->whereId($id)->first();
-        Storage::disk('simpleupload')->delete($data->logo);
-        Storage::disk('simpleupload')->delete($data->image);
-        $data->delete();
+        $deletableData =  PCDescription::where('protocol_id',  $id)->get();
+        foreach ($deletableData as $key => $data) {
+            $data->delete();
+        }
+
+        Protocol::where('id', $id)->delete();
         return redirect()->route('backend.protocalSection.index')->with('message', 'Data Delated Successfully.');
     }
 }
