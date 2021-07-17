@@ -12,6 +12,11 @@ class Protocol extends Model
 
     protected $guarded = ['id'];
 
+
+    public function descriptions()
+    {
+        return $this->hasMany(PCDescription::class, 'protocol_id', 'id');
+    }
     private static function autoDeleteFileConfig()
     {
         return [

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProtocolsTable extends Migration
+class CreatePCDescriptionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreateProtocolsTable extends Migration
      */
     public function up()
     {
-        Schema::create('protocols', function (Blueprint $table) {
+        Schema::create('p_c_descriptions', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('title');
-            $table->string('highlight');
-            $table->string('logo');
-            $table->string('image');
-            // $table->longText('description');
+            $table->unsignedBigInteger('protocol_id');
+            $table->foreign('protocol_id')->references('id')->on('protocols');
+            $table->longText('description');
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ class CreateProtocolsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('protocols');
+        Schema::dropIfExists('p_c_descriptions');
     }
 }

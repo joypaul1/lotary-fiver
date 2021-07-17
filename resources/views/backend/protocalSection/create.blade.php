@@ -35,7 +35,7 @@
             </div>
 
         <!-- Title -->
-            <div class="form-group">
+            <div class="form-group  ">
                 <label class="col-sm-4 no-padding-right bolder" for="heightlight">Title  <sup class="red">*</sup></label>
                 <div class="col-sm-6">
                     <input type="text"
@@ -43,11 +43,15 @@
                            name="title"
                            required
                            placeholder="title here..."
-                           value="{{old('heightlight')}}"
+                           value="{{old('title')}}"
                            class="form-control">
                     <strong class="red">{{ $errors->first('title') }}</strong>
                 </div>
             </div>
+
+
+
+
 
             <!-- logo -->
             <div class="form-group">
@@ -83,24 +87,32 @@
                     <strong class="text-primary">Minimum 120X135 pixels</strong>
                 </div>
             </div>
-            <div class="form-group">
-                <label class="col-sm-4 no-padding-right bolder" for="description">Description </label>
-                <div class="col-sm-8">
-                    @include('backend.components.summer_note',[
-                    'name'=>'description',
-                    'content'=> old('description')
-                    ])
-                    <div class="col-sm-9 col-sm-offset-2">
-                        <strong class=" red">{{ $errors->first('description') }}</strong>
-                    </div>
+
+            <div class="form-group  ">
+                <label class="col-sm-4 no-padding-right bolder" for="description">Description  <sup class="red">*</sup></label>
+                <div class="col-sm-6">
+                    <input type="text"
+                           id="description"
+                           name="description[]"
+                           required
+                           placeholder="description here..."
+                           value="{{old('description')}}"
+                           class="form-control">
+                    <strong class="red">{{ $errors->first('description') }}</strong>
                 </div>
+                <div class="input-group-btn">
+                    <button class="btn btn-sm btn-info add-more" onclick="addMore()" type="button"><i class="glyphicon glyphicon-plus"></i> Add</button>
+                  </div>
             </div>
+
+            <div id="newRow"></div>
+
 
             <!-- Buttons -->
             <div class="form-group">
                 <div class="col-sm-offset-6 col-sm-6">
                     <button class="btn btn-sm btn-success submit create-button">
-                        <i class="fa fa-save"></i> Add
+                        <i class="fa fa-save"></i> Save
                     </button>
 
                     <a href="{{route('backend.protocalSection.index')}}" class="btn btn-sm btn-gray">
@@ -111,3 +123,37 @@
         </form>
     </div>
 @endsection
+@push('js')
+<script>
+
+    function addMore(){
+        var html = '';
+            html += '<div id="inputFormRow">';
+            html += `<div class="form-group">
+                <label class="col-sm-4 no-padding-right bolder" for="description">  </label>
+                <div class="col-sm-6">
+                    <input type="text"
+                           id="description"
+                           name="description[]"
+                           required
+                           placeholder="description here..."
+                           value="{{old('description')}}"
+                           class="form-control">
+                    <strong class="red">{{ $errors->first('description') }}</strong>
+                </div>
+                <div class="input-group-btn">
+                    <button class="btn btn-sm btn-info add-more" onclick="addMore()" type="button"><i class="glyphicon glyphicon-plus"></i> Add</button>
+                    <button id="removeRow" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-minus"></i> Remove</button>
+                  </div>
+            </div>`;
+            html += '</div>';
+
+        $("#newRow").append(html);
+    }
+
+    $(document).on('click', '#removeRow', function () {
+            $(this).closest('#inputFormRow').remove();
+        });
+</script>
+
+@endpush

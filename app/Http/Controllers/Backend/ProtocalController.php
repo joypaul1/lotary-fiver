@@ -44,7 +44,17 @@ class ProtocalController extends Controller
         $data = $request->all();
         $data['logo']  = $this->imageUpload($request->file('logo'),'50' ,'50');
         $data['image'] = $this->imageUpload($request->file('image'),'120' ,'135');
-        Protocol::create($data);
+
+        $protocol = Protocol::create([
+            'highlight' => $request->highlight,
+            'title' => $request->title,
+            'logo' => $data['logo'],
+            'image' => $data['image'],
+        ]);
+
+        foreach ($request->description as $key => $des) {
+            $protocol->descriptions()->create(['description' =>$des ]);
+        }
         return back()->with('message', 'Data Created Successfully.');
     }
 
