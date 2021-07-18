@@ -20,7 +20,6 @@
     @include('frontend._partials.hero', ['coin' => $headerSection->coin_gif??' ', 'adjudicator' =>  $headerSection->person_gif??' ', 'bg' => $headerSection->background_image??'', 'title' => $headerSection->title??' '] )
 
     {{--  roadmap  --}}
-    {{-- @include('frontend._partials.roadmap', ['protocal' =>  $protocal??' ' ]) --}}
     <section id="roadmap" class="roadmap lightBLack">
         <canvas id="roadmapBg"></canvas>
         <div class="container">

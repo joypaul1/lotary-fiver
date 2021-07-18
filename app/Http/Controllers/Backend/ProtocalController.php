@@ -78,12 +78,10 @@ class ProtocalController extends Controller
     }
     public function update(Request $request,$id )
     {
-        $deletableData = null;
-        $protocol = Protocol::find($id);
-        $data = $request->except('_token', '_method');
-        // dd($data);
+        $deletableData  = null;
+        $protocol       = Protocol::find($id);
+        $data           = $request->except('_token', '_method');
         if ($request->logo) {
-
             $data['logo']  = (new SimpleUpload)->file($request->logo)
                                 ->dirName('logo')
                                 ->deleteIfExists($protocol->logo)
@@ -97,17 +95,20 @@ class ProtocalController extends Controller
                         ->deleteIfExists($protocol->image)
                         ->resizeImage(120,135)
                         ->save();
-
         }
-
+      try {
         if ($request->description) {
-                $existdata      = array_keys($data['description']);
-                $deletableData  =  $protocol->descriptions()->whereNotIn('id',  $existdata)->get();
-        }
-
-        if ($deletableData) {
-            foreach ($deletableData as $key => $delete) {
-                $delete->delete();
+            $existId      = array_keys($data['description']);
+            $existValue   = array_values($data['description']);
+            foreach ($existId as $key => $data) {
+                $v= PCDescription::where('id', $existId[$key])->first();
+                $v->update(['description' =>$existValue[$key]]);
+            }
+            $deletableData = PCDescription::whereNotIn('id',$existId)->get();
+            if ($deletableData) {
+                foreach ($deletableData as $key => $delete) {
+                    $delete->delete();
+                }
             }
         }
 
@@ -117,10 +118,16 @@ class ProtocalController extends Controller
             }
         }
 
-        $protocol->update($data);
+        $protocol->update([
+            'highlight' => $request->highlight,
+            'title'     => $request->title,
+        ]);
 
 
-        return redirect()->route('backend.protocalSection.index')->with('message', 'Data Updated Successfully.');
+    } catch (\Exception $ex) {
+        dd($ex->getMessage());
+    }
+    return redirect()->route('backend.protocalSection.index')->with('message', 'Data Updated Successfully.');
     }
     public function destroy (Protocol $protocol, $id)
     {

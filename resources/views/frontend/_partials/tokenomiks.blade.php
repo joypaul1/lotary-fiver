@@ -41,7 +41,7 @@
 
                 </div>
                 <p class="tkBtmTxt" data-aos="fade-up">
-                    {{ $tokenFooter->footer_text??' ' }}
+                    {{ $tokenFooter->description??' ' }}
                 </p>
             </div>
             <div class="tkCounter" data-aos="fade-up">
@@ -50,7 +50,7 @@
                         <div class="tkItem">
 
                             <h6>
-                                {{ number_format($right->amount, 2) }}
+                                {{ ($right->amount??' ') }}
                             </h6>
                             <p>
                                {{ $right->title??' ' }}

@@ -16,7 +16,7 @@ class CreateTokenRightsTable extends Migration
         Schema::create('token_rights', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->longText('title');
-            $table->decimal('amount', 10,2);
+            $table->string('amount');
             $table->timestamps();
         });
     }

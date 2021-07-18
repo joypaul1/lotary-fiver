@@ -1,12 +1,13 @@
 <!-- footer content -->
 @php
     $social = App\Models\Social::first();
+    $footer = App\Models\Footer::first();
 @endphp
 
 <footer id="footer" class="footer">
     <div class="container">
         <h6>
-            Follow us and pledge your fealty:
+          {{ $footer->description??' ' }}
         </h6>
         <ul class="scl">
             <span>

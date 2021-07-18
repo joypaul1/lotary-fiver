@@ -43,8 +43,8 @@
                            type="text"
                            id="instagram"
                            placeholder="instagram link"
-                           class="form-control"
-                           value="{{ $social->youtube ?? old('instagram') }}">
+                           class="form-instagram"
+                           value="{{ $social->instagram ?? old('instagram') }}">
                 </div>
                 <div class="col-sm-9 col-sm-offset-2">
                     <strong class=" red">{{ $errors->first('instagram') }}</strong>
@@ -60,7 +60,7 @@
                            id="facebook"
                            placeholder="facebook link"
                            class="form-control"
-                           value="{{ $social->youtube ?? old('facebook') }}">
+                           value="{{ $social->facebook ?? old('facebook') }}">
                 </div>
                 <div class="col-sm-9 col-sm-offset-2">
                     <strong class=" red">{{ $errors->first('facebook') }}</strong>

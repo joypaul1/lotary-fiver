@@ -45,6 +45,15 @@
         </li>
     </ul>
     <ul class="submenu">
+        <li class="{{ $routeName === 'backend.tokenSection.right.create' ? 'open' : ''}}">
+            <a href="{{ route('backend.tokenSection.right.create') }}">
+                <i class="menu-icon fa fa-caret-right"></i>
+                Right Side Data Create
+            </a>
+            <b class="arrow"></b>
+        </li>
+    </ul>
+    <ul class="submenu">
         <li class="{{ $routeName === 'backend.tokenSection.footer.text' ? 'open' : ''}}">
             <a href="{{ route('backend.tokenSection.footer.text') }}">
                 <i class="menu-icon fa fa-caret-right"></i>
