@@ -89,6 +89,16 @@
             @forelse ($data->descriptions as $des)
             <div class="form-group" id="inputFormRow">
                 <label class="col-sm-4 no-padding-right bolder" for="description">Description  <sup class="red">*</sup></label>
+                    <div class="col-sm-1">
+                        <input type="text"
+                            id="style"
+                            name="style[]"
+                            required
+                            placeholder="style here..."
+                            value="{{ $des->style??'' }}"
+                            class="form-control">
+                        <strong class="red">{{ $errors->first('style') }}</strong>
+                    </div>
                     <div class="col-sm-6">
                         <input type="text"
                             id="description"
@@ -107,6 +117,16 @@
                 @empty
                 <div class="form-group" id="inputFormRow">
                     <label class="col-sm-4 no-padding-right bolder" for="description">Description  <sup class="red">*</sup></label>
+                    <div class="col-sm-1">
+                        <input type="text"
+                               id="style"
+                               name="style[]"
+                               required
+                               placeholder="style here..."
+                               value="{{old('style')}}"
+                               class="form-control">
+                        <strong class="red">{{ $errors->first('style') }}</strong>
+                    </div>
                         <div class="col-sm-6">
                             <input type="text"
                                 id="description"
@@ -153,6 +173,14 @@
             html += '<div id="inputFormRow">';
             html += `<div class="form-group">
                 <label class="col-sm-4 no-padding-right bolder" for="description">  </label>
+                <input type="text"
+                               id="style"
+                               name="new_style[]"
+                               required
+                               placeholder="style here..."
+                               value="{{old('style')}}"
+                               class="form-control">
+                        <strong class="red">{{ $errors->first('style') }}</strong>
                 <div class="col-sm-6">
                     <input type="text"
                            id="description"

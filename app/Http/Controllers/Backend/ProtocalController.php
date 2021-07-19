@@ -52,9 +52,8 @@ class ProtocalController extends Controller
             'logo' => $data['logo'],
             'image' => $data['image'],
         ]);
-
         foreach ($request->description as $key => $des) {
-            $protocol->descriptions()->create(['description' =>$des ]);
+            $protocol->descriptions()->create(['description' =>$des, 'style' => $request->style[$key] ]);
         }
         return back()->with('message', 'Data Created Successfully.');
     }
@@ -81,6 +80,7 @@ class ProtocalController extends Controller
         $deletableData  = null;
         $protocol       = Protocol::find($id);
         $data           = $request->except('_token', '_method');
+        // dd($data);
         if ($request->logo) {
             $data['logo']  = (new SimpleUpload)->file($request->logo)
                                 ->dirName('logo')
@@ -99,12 +99,15 @@ class ProtocalController extends Controller
       try {
         if ($request->description) {
             $existId      = array_keys($data['description']);
+            // $existId      = array_keys($data['style']);
             $existValue   = array_values($data['description']);
+            $styleValue   = array_values($data['style']);
+            // dd($styleValue);
             foreach ($existId as $key => $data) {
-                $v= PCDescription::where('id', $existId[$key])->first();
-                $v->update(['description' =>$existValue[$key]]);
+                $v = PCDescription::where('id', $existId[$key])->first();
+                $v->update(['description' =>$existValue[$key], 'style' =>$styleValue[$key] ]);
             }
-            $deletableData = PCDescription::whereNotIn('id',$existId)->get();
+            $deletableData = PCDescription::where('protocol_id', $protocol->id)->whereNotIn('id',$existId)->get();
             if ($deletableData) {
                 foreach ($deletableData as $key => $delete) {
                     $delete->delete();
@@ -114,7 +117,7 @@ class ProtocalController extends Controller
 
         if ($request->new_description) {
             foreach ($request->new_description as $key => $des) {
-                $protocol->descriptions()->create(['description' =>$des ]);
+                $protocol->descriptions()->create(['description' =>$des,'style' => $request->new_style[$key] ]);
             }
         }
 
@@ -127,7 +130,7 @@ class ProtocalController extends Controller
     } catch (\Exception $ex) {
         dd($ex->getMessage());
     }
-    return redirect()->route('backend.protocalSection.index')->with('message', 'Data Updated Successfully.');
+        return redirect()->route('backend.protocalSection.index')->with('message', 'Data Updated Successfully.');
     }
     public function destroy (Protocol $protocol, $id)
     {
@@ -135,7 +138,6 @@ class ProtocalController extends Controller
         foreach ($deletableData as $key => $data) {
             $data->delete();
         }
-
         Protocol::where('id', $id)->delete();
         return redirect()->route('backend.protocalSection.index')->with('message', 'Data Delated Successfully.');
     }

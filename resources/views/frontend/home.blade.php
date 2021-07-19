@@ -52,7 +52,7 @@
                                 <ul class="theList">
                                     @forelse ($pro->descriptions as $proDes)
                                         <li>
-                                            <span>-</span>{{ $proDes->description??'' }}
+                                            <span>{{  $proDes->style??''  }}</span>{{ $proDes->description??'' }}
                                         </li>
                                     @empty
 
