@@ -14,18 +14,6 @@ Route::group(['prefix' => 'sadmin', 'middleware' => ['auth:admin', 'admin'], 'na
     // Site Config
     require_once __DIR__ . '/backend/site_config.php';
 
-    // Product
-    // require_once __DIR__ . '/backend/product.php';
-
-    // Customer
-    // require_once __DIR__ . '/backend/customer.php';
-
-    // Order
-    // require_once __DIR__ . '/backend/order.php';
-
-    // Purchase
-    // require_once __DIR__ . '/backend/purchase.php';
-
     // menu
     require_once __DIR__ . '/backend/menu.php';
 
@@ -48,6 +36,9 @@ Route::group(['prefix' => 'sadmin', 'middleware' => ['auth:admin', 'admin'], 'na
     require_once __DIR__ . '/backend/social.php';
 
     require_once __DIR__ . '/backend/footerSection.php';
+
+    // password
+    require_once __DIR__ . '/backend/password.php';
 });
 
 
@@ -57,6 +48,7 @@ Route::group(['prefix' => 'sadmin', 'middleware' => ['auth:admin', 'admin'], 'na
 // Frontend Routes
 
 require_once __DIR__ . '/frontend/home.php';
+
 
 
 

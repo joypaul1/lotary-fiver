@@ -15,7 +15,6 @@ class DatabaseSeeder extends Seeder
             UsersTableSeeder::class,
             AdminsTableSeeder::class,
             SiteInfosTableSeeder::class,
-            // AboutusTableSeeder::class,
             NameTableSeeder::class,
             FooterTableSeeder::class,
         ]);

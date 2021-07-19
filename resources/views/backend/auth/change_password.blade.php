@@ -7,7 +7,6 @@
 
 @stop
 
-
 @section('content')
 
 
@@ -54,6 +53,7 @@
                                         </span>
                                         <input type="password" name="new_password" class="form-control search-query" placeholder="..........">
                                     </div>
+                                    <span class="text-danger">Password Lenght minimum 6 character.</span>
                                     @error('new_password')
                                     <span class="text-danger">
                                         {{ $message }}

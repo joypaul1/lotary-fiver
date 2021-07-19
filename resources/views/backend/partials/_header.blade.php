@@ -26,10 +26,10 @@
 
                 <li class="light-blue dropdown-modal">
                     <a data-toggle="dropdown" href="#" class="dropdown-toggle">
-                        <img class="nav-user-photo" src="{{asset(auth()->user()->image)}}" alt="{{auth()->user()->name}}">
+                        <img class="nav-user-photo" src="{{asset(auth()->user()->image??' ')}}" alt="{{auth()->user()->name?? ''}}">
                         <span class="user-info">
 									<small>Welcome,</small>
-									{{auth()->user()->name}}
+									{{auth()->user()->name??' '}}
 								</span>
                         <i class="ace-icon fa fa-caret-down"></i>
                     </a>
@@ -43,9 +43,9 @@
                         </li>
 
                         <li>
-                            <a href="#">
+                            <a href="{{ route('user.password.edit') }}">
                                 <i class="ace-icon fa fa-user"></i>
-                                Profile
+                                Change Password
                             </a>
                         </li>
 

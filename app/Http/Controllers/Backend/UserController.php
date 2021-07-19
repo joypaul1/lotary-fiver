@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Admin;
 use App\User;
 use App\Rules\MatchOldPassword;
 use Exception;
@@ -25,12 +26,12 @@ class UserController extends Controller
     {
         $request->validate([
             'current_password'     => ['required', new MatchOldPassword],
-            'new_password'         => ['required'],
+            'new_password'         => 'required|min:6',
             'new_confirm_password' => ['same:new_password'],
         ]);
 
         try {
-            User::find(auth()->user()->id)->update(['password' => Hash::make($request->new_password)]);
+            Admin::find(auth()->user()->id)->update(['password' => Hash::make($request->new_password)]);
             return redirect()->back()->with('message', 'Password change successfully');
         } catch (Exception $ex) {
             return redirect()->back()->with('error', 'Some error please check');
